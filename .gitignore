@@ -1,0 +1,5 @@
+#carpetas sin modificacion
+
+#archivos sublime text
+*.sublime-project
+*.sublime-workspace
