@@ -10,7 +10,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 var extensions = "*.js,*.php,*.html,*.css,*.json,*.java"; 			// The default extensions that are checked
 var typeCommentInline = "^[\s\t]*\u002f\u002f.*?$,^[\s\t]*'.*?$";   //Comments identified by default of a single line: // y '.
 var typeBlockCommentOpen = new Array(new RegExp(".*/\*.*"));
-var typeBlockCommentClose = new Array(new RegExp(".*\*/"));
+var typeBlockCommentClose = new Array(new RegExp(".*[\*/]"));
 
 var n_folders, n_pfiles, n_lines, n_lWhite, n_comments;
 
