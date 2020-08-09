@@ -71,6 +71,12 @@ $(document).ready(function() {
 
 function processDirectory(files, f_exclusions)
 {
+	if (files.length == f_exclusions.length)
+	{
+		alert("Todos los archivos estan excluidos\nNo hay archivos a analizar");
+		return;
+	}
+
 	var fst_file = files[0];
 	var folder_root = fst_file.webkitRelativePath.split(/\u002f/)[0];
 	console.log(`%cComenzando a procesar la carpeta: "${folder_root}"`, "color:#819FF7");
