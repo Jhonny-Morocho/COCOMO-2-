@@ -11,7 +11,8 @@ var extensions = "*.js,*.php,*.html,*.css,*.json,*.java"; 			// The default exte
 var typeCommentInline = "^[\s\t]*\u002f\u002f.*?$";   				//Comments identified by default of a single line: //.
 var typeBlockCommentOpen = ".*(\u002f\\*).*,.*(<!--).*";			// Block comment opening character /* <!--
 var typeBlockCommentClose = ".*(\\*\u002f),.*(-->)";				// Block comment closing character */ -->
-var exclusions = ".git,.gitignore,.gitattributes,.svn,bin,obj,properties";
+// Default exclusions (RegExp)
+var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,^obj$,^properties$,\\.md$";
 
 var regCommentInLine, regBlockCommentOpen, regBlockCommentClose;
 
@@ -21,11 +22,33 @@ var n_folders, n_pfiles, n_lines, n_lWhite, n_comments;
 $(document).ready(function() {
 
 	var files;
+	var f_exclusions;
+
+	var re_excls = exclusions.split(",").map((item) => new RegExp(item));
+	console.log(re_excls);
 
 	$("#dir_files").on('change', function(event) {
 		/* Act on the event */
-		files = event.target.files;
+		files = Array.from(event.target.files);
 		//console.log($(this).val());
+		
+		files.forEach((f, index) => {
+			var option = $('<option>', {
+				'value': index,
+				'text': Encoder.htmlDecode(f.name),
+				'data-secondary-text': Encoder.htmlDecode(f.webkitRelativePath),
+				'selected': re_excls.some((re) => f.name.search(re) != -1)
+			});
+			$("select#ml_sel_excl").append(option);
+		});
+	});
+
+	$("#block-multiselect_excl").on('click', '#btn_excl', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		console.log($("select#ml_sel_excl").val());
+		var i_excl = $("select#ml_sel_excl").val().map((item) => parseInt(item));
+		f_exclusions = files.filter((it,index) => i_excl.indexOf(index) != -1);
 	});
 	
 	$("#btn_send").on('click', function(event) {
@@ -38,18 +61,18 @@ $(document).ready(function() {
 		}
 		else
 		{
-			processDirectory(files);
+			processDirectory(files, f_exclusions);
 		}
 	});
 });
 
-function processDirectory(files)
+function processDirectory(files, f_exclusions)
 {
 	var fst_file = files[0];
 	var folder_root = fst_file.webkitRelativePath.split(/\u002f/)[0];
 	console.log(`%cComenzando a procesar la carpeta: "${folder_root}"`, "color:#819FF7");
 
-	var exts = extensions.split(",").map((item) => item.replace("*", ""));
+	var exts = extensions.split(",").map((item) => item.replace("*", "").replace(/^\./, "\\."));
 	console.log(exts);
 
 	var expComentary = typeCommentInline.split(",");
@@ -70,29 +93,27 @@ function processDirectory(files)
 	console.log(expBlockComentaryClose);
 	console.log(regBlockCommentClose);
 
-	var excls = exclusions.split(",");
-	console.log(excls);
+	// var excls = exclusions.split(",");
+	// console.log(excls);
 
 	for (f of files) 
 	{
 		var b = false;
-		for (ex of exts) {
-			var re = new RegExp("(" + ex + ")$");
-			if (f.name.search(re) != -1)
-			{
-				b = true;
-				accountLinesCode(f);
-				break;
+		if (f_exclusions.indexOf(f) == -1) {
+			for (ex of exts) {
+				var re = new RegExp("(" + ex + ")$");
+				if (f.name.search(re) != -1)
+				{
+					b = true;
+					accountLinesCode(f);
+					break;
+				}
 			}
 		}
-		for (x of excls) {
-			var re = new RegExp("^" + x + "$");
-			if (f.name.search(re) != -1)
-			{
-				b = true;
-				console.log(`%c${f.webkitRelativePath} (excluida)`, "color:#D358F7");
-				break;
-			}
+		else
+		{
+			b = true;
+			console.log(`%c${f.webkitRelativePath} (excluida)`, "color:#D358F7");
 		}
 		if (!b)
 		{
