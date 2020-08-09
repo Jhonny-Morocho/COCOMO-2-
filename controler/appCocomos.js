@@ -12,7 +12,7 @@ var typeCommentInline = "^[\s\t]*\u002f\u002f.*?$";   				//Comments identified 
 var typeBlockCommentOpen = ".*(\u002f\\*).*,.*(<!--).*";			// Block comment opening character /* <!--
 var typeBlockCommentClose = ".*(\\*\u002f),.*(-->)";				// Block comment closing character */ -->
 // Default exclusions (RegExp)
-var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,^obj$,^properties$,\\.md$";
+var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,.*\\.obj$,.*\\.properties$,\\.md$";
 
 var regCommentInLine, regBlockCommentOpen, regBlockCommentClose;
 
