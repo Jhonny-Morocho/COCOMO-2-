@@ -41,6 +41,12 @@ $(document).ready(function() {
 			});
 			$("select#ml_sel_excl").append(option);
 		});
+
+		var i_excl = $("select#ml_sel_excl").val().map((item) => parseInt(item));
+		if (files && files.length != 0)
+		{
+			f_exclusions = files.filter((it,index) => i_excl.indexOf(index) != -1);
+		}
 	});
 
 	$("#block-multiselect_excl").on('click', '#btn_excl', function(event) {
