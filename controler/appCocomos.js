@@ -48,7 +48,10 @@ $(document).ready(function() {
 		/* Act on the event */
 		console.log($("select#ml_sel_excl").val());
 		var i_excl = $("select#ml_sel_excl").val().map((item) => parseInt(item));
-		f_exclusions = files.filter((it,index) => i_excl.indexOf(index) != -1);
+		if (files && files.length != 0)
+		{
+			f_exclusions = files.filter((it,index) => i_excl.indexOf(index) != -1);
+		}
 	});
 	
 	$("#btn_send").on('click', function(event) {
