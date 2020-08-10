@@ -14,9 +14,14 @@ var typeBlockCommentClose = ".*(\\*\u002f),.*(-->)";				// Block comment closing
 // Default exclusions (RegExp)
 var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,.*\\.obj$,.*\\.properties$,\\.md$";
 
+// Arreglos de expresiones regulares
 var regCommentInLine, regBlockCommentOpen, regBlockCommentClose;
 
-var n_folders, n_pfiles, n_lines, n_lWhite, n_comments;
+// Variables globales para los cálculos de procesamiento
+var n_folders, n_pfiles, n_tfiles, i_cfiles, n_tloc, n_tbloc, n_tcloc, n_tltotal;
+
+// Temporizadores
+var t_Initial, t_Final;
 
 // Document is ready
 $(document).ready(function() {
@@ -83,9 +88,14 @@ function processDirectory(files, f_exclusions)
 		return;
 	}
 
+	resetGlobalVars();
+
 	var fst_file = files[0];
 	var folder_root = fst_file.webkitRelativePath.split(/\u002f/)[0];
 	console.log(`%cComenzando a procesar la carpeta: "${folder_root}"`, "color:#819FF7");
+
+	// Tiempo de comienzo del procesamiento
+	t_Initial = performance.now();
 
 	var exts = extensions.split(",").map((item) => item.replace("*", "").replace(/^\./, "\\."));
 	console.log(exts);
@@ -110,6 +120,20 @@ function processDirectory(files, f_exclusions)
 
 	// var excls = exclusions.split(",");
 	// console.log(excls);
+	
+	// Se guarda el número total de archivos del directorio
+	n_tfiles = files.length;
+
+	// Obtener el número de archivos que se van a procesar del directorio
+	files.forEach((f) => {
+		if (f_exclusions.indexOf(f) == -1) {
+			exts.forEach((ex) => {
+				if (f.name.search(new RegExp("(" + ex + ")$")) != -1) {
+					n_pfiles++;
+				}
+			});
+		}
+	});
 
 	for (f of files) 
 	{
@@ -135,17 +159,6 @@ function processDirectory(files, f_exclusions)
 			console.log("%c" + f.webkitRelativePath, "color:#F78181");
 		}
 	}
-
-	console.log("%cRESULTADOS:\n\
-		Num Carpetas: {0:N0}\n\
-		Num archivos: {1:N0}\n\
-		Líneas de Código ejecutables (LOC): {2:N0}\n\
-		Líneas en blanco (BLOC): {3:N0}\n\
-		Lineas comentadas (CLOC): {4:N0}\n\
-		Líneas totales (TLOC): {5:N0}\n\
-		Ratio Comentarios/Codigo: {6:F2}/1\n\
-		Tiempo total empleado en el análisis: {7:N0}ms", "color:#04B404");
-	console.log("%cFinal del procesamiento", "color:#819FF7");
 }
 
 function accountLinesCode(file)
@@ -231,10 +244,53 @@ function accountLinesCode(file)
 			Líneas en blanco: ${numBlank}\n
 			Lineas comentadas: ${numComment}\n
 			Líneas totales: ${lines.length}`, "color:#FF4000");
+
+		addToTotalResults(numLines, numBlank, numComment, lines.length);
 	};
 	reader.readAsText(file);
 
-	n_pfiles++;
+	// n_pfiles++;
+}
+
+function addToTotalResults(c_numLines, c_numBlank, c_numComment, c_tlines)
+{
+	n_tloc += c_numLines;
+	n_tbloc += c_numBlank;
+	n_tcloc += c_numComment;
+	n_tltotal += c_tlines;
+	i_cfiles++;
+
+	// Si el numero de archivos procesados actuales son igual a los procesados totales
+	if (i_cfiles == n_pfiles)
+	{	
+		// Tiempo final del procesamiento
+		t_Final = performance.now();
+
+		var divClocLoc = n_tcloc / n_tloc;
+		var sResult = sprintf("RESULTADOS:\n" + 
+			"Num Carpetas: %d\nNum archivos procesados: %d\nNum archivos totales: %d\n" +
+			"Líneas de Código ejecutables (LOC): %d\nLíneas en blanco (BLOC): %d\n" + 
+			"Lineas comentadas (CLOC): %d\nLíneas totales (TLOC): %d\n" + 
+			"Relación Comentarios//Codigo: %.2f\nTiempo total empleado en el análisis: %.2f ms", 
+			n_folders, n_pfiles, n_tfiles, n_tloc, n_tbloc, n_tcloc, n_tltotal, divClocLoc, (t_Final - t_Initial));
+
+		console.log(`%c${sResult}`, "color:#04B404");
+		console.log("%cFinal del procesamiento", "color:#819FF7");
+	}
+}
+
+function resetGlobalVars()
+{
+	n_folders = 0;
+	n_pfiles = 0;
+	n_tfiles = 0;
+	i_cfiles = 0;
+	n_tloc = 0;
+	n_tbloc = 0; 
+	n_tcloc = 0; 
+	n_tltotal = 0;
+	t_Initial = 0;
+	t_Final = 0;
 }
 
 function isNullOrWhiteSpace(input) 
