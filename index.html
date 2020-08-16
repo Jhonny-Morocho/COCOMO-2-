@@ -88,8 +88,11 @@
 										<button class="btn-save btn btn-primary btn-sm" id="btn_excl">Guardar</button>
 									</div>
 								</div>
-
-
+								 <!-- ============COSTO MES PERSONA============ -->
+								<div class="md-form mt-3">
+									<input type="number" id="materialSubscriptionFormPasswords" class="form-control" min="500" required>
+									<label for="materialSubscriptionFormPasswords">Costo Mes/Persona</label>
+								</div>
 								<!--Message-->
 								<label for="materialContactFormMessage">EM (Multiplicadores de esfuerzo) POST PRODUCCION</label>
 								<div class="md-form" >
@@ -439,12 +442,9 @@
 									  </table>
 								</div>
 
-								<!-- Copy -->
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="materialContactFormCopy">
-									<label class="form-check-label" for="materialContactFormCopy">Send me a copy of this
-										message</label>
-								</div>
+					
+							
+								
 
 								<!-- Send button -->
 								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
@@ -458,23 +458,27 @@
 				</div>
 
 				<div class="col-lg-12">
-					<form action="#" method="post">
-						<div class="card-body px-lg-5 pt-0">
+					<form action="#" method="post" id="estimar">
+						<div class="card-body px-lg-5 pt-0 ">
 							
 							<TABLE BORDER class="table">
 								<TR class="black white-text dataAfter">
 									<TH COLSPAN=1 title="Numero de Modulo">#</TH>
 									<TH COLSPAN=1 title="Nombre Modulo">Name</TH>
 									<TH COLSPAN=1 title="Numero de Lienas de Código">SLOC</TH>
-									<TH COLSPAN=1 title="">EAF</TH>
-									<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto">PM Nominal Mes Persona</TH>
+									<TH COLSPAN=1 title="Factor de Ajuste para cada modulo">EAF</TH>
+									<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto"><p>\[ {PM_{Nominal Mes Persona}}\]</p></TH>
+									<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF"><p>\[ {PM_{Estimado Módulo(Mes Persona)}}\]</p></TH>
+									<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">Costo Mes-Persona Dolares</TH>
+									<TH colspan="1" title="Costo del modulo"><p>\[ {Costo_{(estimado,modulo)}}\]</p></TH>
 								
 								</TR>
 								
 								<!-- DATA DESDE JS -->
 							</TABLE>
+							<input type="submit" name="btn_pagar" value="Calcular" class="btn btn-success col-md-12">
 						</div>
-						<input type="submit" name="btn_pagar" value="Calcular" class="btn btn-success col-md-12">
+						
 					</form>
 					
 				</div>
@@ -491,18 +495,27 @@
 												<td class="totalSlock">0</td>
 											</tr>
 											<tr class="total">
-												<td title="Es el esfuerzo Nominal ajustado por 7 factores, que reflejan otros aspectos propios del proyecto que afectan al esfuerzo necesario para la ejecución del mism">Esfuerzo Nominal (Estimadado) PMNominal</td>
+												<td title="Es el esfuerzo Nominal ajustado por 7 factores, que reflejan otros aspectos propios del proyecto que afectan al esfuerzo necesario para la ejecución del mism">Esfuerzo Nominal (Estimadado)  <p>\[ {PM_Nominal}\]</p></td>
 												<td class="esfuerzoNominal">0</td>
 											</tr>
 											<tr class="total">
-												<td >Productividad del Proyecto (KSLOC/PM)Nomlna</td>
+												<td >Productividad del Proyecto  <p>\[ {(KSLOC/PM)_Nominal}\]</p></td>
 												<td class="productividadNominal">0</td>
+											</tr>
+											<tr class="total">
+												<td >Esfuerzo Estimado  del Sistema Total</td>
+												<td class="esfuerzoEstimadoDelSistemTotal">0</td>
+											</tr>
+											<tr class="total">
+												<td >Tiempo de desarrollo Estimado <p>\[TDEV = {[3.0*PM_{estimado}^{0.33+0.2*(B-1.01)} ]}\]</p></td>
+												<td class="timeDevEstimado">0</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 							</div>
-
+							
+							
 						
 							<input type="hidden" id="descuentoId" name="descuento" value="50">
 							<input type="hidden" id="limiteId" name="limite" value="5">
@@ -588,7 +601,14 @@
 	<!-- Your custom scripts (optional) -->
 	<script type="text/javascript" src="../../controler/appCocomos.js"></script>
 	<script type="text/javascript" src="../../controler/eaf.js"></script>
+
 	<script type="text/javascript" src="../../view/table.js"></script>
+	<script type="text/javascript" src="../../controler/formulas.js"></script>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
 	
 </body>
 

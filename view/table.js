@@ -1,13 +1,9 @@
 
-// datos leidos desde el formulario de lineas de codigo
-// var arrayDatoStatico={nombre:['Qedit','Search','Output','UpEdit','Modify','Utils'],
-// 					  slock:[1800,700,1200,1700,900,1731],
-// 					  factorEscala:[3.72 , 3.04 , 4.24 ,3.29 , 4.68]
-// 					}
-var arrayDatoStatico={nombre:['Qedit','Search'],
-	slock:[1800,700],
+var arrayDatoStatico={nombre:['Qedit','Search','Output','UpEdit','Modify','Utils'],
+	slock:[1800,700,1200,1700,900,1731],
 	factorEscala:[3.72 , 3.04],
-	EAF:[0.54,0.39]
+	EAF:[0.54,0.39],
+	Sueldo:[5370,5370]
 }
 
 
@@ -17,7 +13,8 @@ function calcularEAF(){
   
   }
 
-  
+  //=====================
+
 //1. Sumar el total de lienas de codigo de todo el proyecto
 var numero=0,sloc=0, TD="";
 
@@ -67,21 +64,32 @@ const A=2.94;//es una constante que captura los efectos lineales sobre el esfuer
 
 	 
 //===========IMPRIMIR ============
+var esfuerzoEstimadoDelSistemTotal=0;
+var TDEV=0,Pm_estimado_modulo=0;
 for(var i = 0; i < arrayDatoStatico.slock.length; i++){
+	
 	// imprimir data
-	TD='<tr>'+
+	Pm_estimado_modulo=(arrayDatoStatico.EAF[i]*(arrayDatoStatico.slock[i]/ProductividadNominal)).toFixed(2);
+	TD='<tr class="nodosData">'+
 		  
 			'<td>'+(i+1)+'</td>'+
 			'<td>'+arrayDatoStatico.nombre[i]+'</td>'+
 			'<td>'+arrayDatoStatico.slock[i]+'</td>'+
 			'<td>'+arrayDatoStatico.EAF[i]+'</td>'+
 			'<td>'+(arrayDatoStatico.slock[i]/ProductividadNominal).toFixed(2)+'</td>'+
+			'<td>'+Pm_estimado_modulo+'</td>'+
+			'<td>'+arrayDatoStatico.Sueldo[i]+'</td>'+
+			'<td>'+(arrayDatoStatico.Sueldo[i]*Pm_estimado_modulo).toFixed(2)+'</td>'+
+
 		
 		'/<tr>';
 	$('.dataAfter').after(TD);
-	
-
+	esfuerzoEstimadoDelSistemTotal+=arrayDatoStatico.EAF[i]*(arrayDatoStatico.slock[i]/ProductividadNominal);
 }
+//Tiempo de dasarrolo estimado del proyecto 
+$('.esfuerzoEstimadoDelSistemTotal').html(esfuerzoEstimadoDelSistemTotal.toFixed(2));
+TDEV=[3.0*Math.pow(esfuerzoEstimadoDelSistemTotal,(0.33+0.2*(B-1.01)))];
+$('.timeDevEstimado').html(TDEV);
 //Esfuerzo nominal por modulo
 // for(var i = 0; i < arrayDatoStatico.factorEscala.length; i++){
 // 	var tdPM_nominal_modulo='<tr>'+
@@ -96,10 +104,20 @@ for(var i = 0; i < arrayDatoStatico.slock.length; i++){
 // }
  
 
-//===============================2. ESFUERZO APLICADO==============================//
 
-//tablaEstimacion();
+//===============================IMPRIMIR TABLA CON LOS CALCULOS ESTIMADOS=============================//
 
+
+$('#estimar').on('click',function(e){
+    e.preventDefault();
+	//alert("Imprme tabla");
+	$('.nodosData').remove();
+});
+
+
+function imprimirTabla(){
+	
+}
 
 
 
