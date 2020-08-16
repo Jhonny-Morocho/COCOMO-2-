@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,13 +21,14 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!-- =================== APP==================== -->
 	<link rel="stylesheet" href="../css/appIndex.css">
-	<meta property="og:title" content="LatinEdit.com"/>
-	<meta property="og:description" content="The best of the record pool of djs" /> 
-	<meta property="og:image" content="../../img/perfil-facebook.png" />      
+	<meta property="og:title" content="LatinEdit.com" />
+	<meta property="og:description" content="The best of the record pool of djs" />
+	<meta property="og:image" content="../../img/perfil-facebook.png" />
 	<meta property="og:url" content="https://www.LatinEdit.com/" />
 </head>
+
 <body>
-    <div class="pos-f-t">
+	<div class="pos-f-t">
 		<div class="collapse" id="navbarToggleExternalContent">
 			<div class="bg-dark p-4">
 				<h4 class="text-white">Collapsed content</h4>
@@ -35,140 +37,521 @@
 		</div>
 		<nav class="navbar navbar-dark bg-dark">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-			aria-expanded="false" aria-label="Toggle navigation">
+				data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 		</nav>
-    </div>
-    <!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
-    <!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
-    <!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
-    <div class="row">
-        <div class="col-lg-12">
-    			<h2>Cocomo 2</h2>
-    			<div class="row">
-    				<div class="col-12  formulario">
-    					<!-- Material form contact -->
-    					<div class="card">
-    						<h5 class="card-header info-color white-text text-center py-4 bg-dark">
-    							<strong>Parametros de Configuracion</strong>
-    						</h5>
+	</div>
+	<!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
+	<!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
+	<!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
+	<div class="row">
+		<div class="col-lg-12">
+			<h2>Cocomo 2</h2>
+			<div class="row">
+				<div class="col-12  formulario">
+					<!-- Material form contact -->
+					<div class="card">
+						<h5 class="card-header info-color white-text text-center py-4 bg-dark">
+							<strong>Parametros de Configuracion</strong>
+						</h5>
 
-    						<!--Card content-->
-    						<div class="card-body px-lg-5 pt-0">
+						<!--Card content-->
+						<div class="card-body px-lg-5 pt-0">
 
-    							<!-- Form -->
-    							<form style="color: #757575;" action="#!">
+							<!-- Form -->
+							<form style="color: #757575;" action="#!" id="formCocomo">
 
-    								<!-- Name -->
-    								<div class="md-form mt-3">
-    									<div class="file-field">
-    										<div class="btn btn-primary btn-sm float-left">
-    											<span>Elegir directorio</span>
-    											<input type="file" name="file" id="dir_files" webkitdirectory directory multiple>
-    										</div>
-    										<div class="file-path-wrapper">
-    											<input class="file-path validate" type="text" placeholder="Sube tu archivo">
-    										</div>
-    									</div>
-    								</div>
-
-									<div class="row">
-										<div class="col-md-12" id="block-multiselect_excl">
-											<select id="ml_sel_excl" class="mdb-select colorful-select dropdown-dark md-form" multiple searchable="Busca aquí.." data-label-select-all="Seleccionar todo">
-												<option value="" disabled selected>Elige los archivos a excluir</option>
-											</select>
-											<label class="mdb-main-label">Exclusiones</label>
-											<button class="btn-save btn btn-primary btn-sm" id="btn_excl">Guardar</button>
+								<!-- Name -->
+								<div class="md-form mt-3">
+									<div class="file-field">
+										<div class="btn btn-primary btn-sm float-left">
+											<span>Elegir directorio</span>
+											<input type="file" name="file" id="dir_files" webkitdirectory directory
+												multiple>
+										</div>
+										<div class="file-path-wrapper">
+											<input class="file-path validate" type="text" placeholder="Sube tu archivo">
 										</div>
 									</div>
+								</div>
 
-									<!-- <div class="row">
-										<div class="col-md-12">
-											<select class="select-wrapper mdb-select md-form" multiple>
-											<option value="" disabled selected>Choose your country</option>
-												<option value="1">USA</option>
-												<option value="2">Germany</option>
-												<option value="3">France</option>
-												<option value="3">Poland</option>
-												<option value="3">Japan</option>
+								<div class="row">
+									<div class="col-md-12" id="block-multiselect_excl">
+										<select id="ml_sel_excl"
+											class="mdb-select colorful-select dropdown-dark md-form" multiple
+											searchable="Busca aquí.." data-label-select-all="Seleccionar todo">
+											<option value="" disabled selected>Elige los archivos a excluir</option>
+										</select>
+										<label class="mdb-main-label">Exclusiones</label>
+										<button class="btn-save btn btn-primary btn-sm" id="btn_excl">Guardar</button>
+									</div>
+								</div>
+
+
+								<!--Message-->
+								<label for="materialContactFormMessage">EM (Multiplicadores de esfuerzo) POST PRODUCCION</label>
+								<div class="md-form" >
+									<TABLE BORDER  class="table">
+										<TR class="black white-text">
+											<TH COLSPAN=5 title="Multiplicadores de Efuerzo">Producto</TH>
+											<TH COLSPAN=3 title="Multiplicadores de Efuerzo">Plataforma</TH>
+											<TH COLSPAN=6 title="Multiplicadores de Efuerzo">Personal</TH>
+											<TH COLSPAN=3 title="Multiplicadores de Efuerzo">Proyeto</TH>
+										</TR>
+										<TR class="formEMdata" >
+											<TH title="Confiabilidad requerida">RELY</TH>
+											<TH title="Tamaño de BD">DATA</TH>
+											<TH title="Documentación acorde a las diferentas etapas del ciclo de vida">DOCU</TH>
+											<TH title="Complejidad del producto">CPLX</TH>
+											<TH title="Requerimientos de reusabilidad">RUSE</TH>
+
+											<TH title=" Restricción del tiempo de ejecución">TIME</TH>
+											<TH title=" Restricción del almacenamiento principal">ST0R</TH>
+											<TH title="Volatilidad de la plataforma">PVOL</TH>
+
+											<TH title="Capacidad del analista">ACAP</TH>
+											<TH title="Experiencia en la aplicación">AEXP</TH>
+											<TH title="Capacidad del programador">PCAP</TH>
+											<TH title="Experiencia en la plataforma">PEXP</TH>
+											<TH title="Experiencia en el lenguaje y las herramientas">LTEX</TH>
+											<TH title="Continuidad del persona">PCON</TH>
+
+
+											<TH title="Uso de herramientas de software">TOOL</TH>
+											<TH title="Cronograma requerido para el desarrollo">SCED</TH>
+											<TH title="Desarrollo multisitio">SITE</TH>
+											
+										</TR>
+										<td>
+									
+										  	<select class="mdb-select md-form" id="proRELY">
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.82" title="Muy Bajo">VLO</option>
+												<option value="0.92" title="Bajo">LO</option>
+												<option value="1.10" title="Alto">MI</option>
+												<option value="1.26" title="Muy Alto">VMI</option>
 											</select>
-											<label class="mdb-main-label">Label example</label>
-											<button class="btn-save btn btn-primary btn-sm">Save</button>
-										</div>
-									</div> -->
+										</td>
 
-    								<!-- Subject -->
-    								<!-- <span>Subject</span>
-    								<select class="mdb-select">
-    									<option value="" disabled>Choose option</option>
-    									<option value="1" selected>Feedback</option>
-    									<option value="2">Report a bug</option>
-    									<option value="3">Feature request</option>
-    									<option value="4">Feature request</option>
-    								</select> -->
+										<td>
+											<select class="mdb-select md-form" id="proData">
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.90" title="Bajo">LO</option>
+												<option value="1.14" title="Alto">MI</option>
+												<option value="1.26" title="Muy Alto">VMI</option>
+											</select>
+										</td>
 
-    								<!--Message-->
-    								<div class="md-form">
-    									<textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3"></textarea>
-    									<label for="materialContactFormMessage">Message</label>
-    								</div>
+										<td>
+											<select class="mdb-select md-form" id="proDOCU">
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.81" title="Muy Bajo">VLO</option>
+												<option value="0.91" title="Bajo">LO</option>
+												<option value="1.11" title="Alto">MI</option>
+												<option value="1.23" title="Muy Alto">VMI</option>
+											</select>
+										</td>
 
-    								<!-- Copy -->
-    								<div class="form-check">
-    									<input type="checkbox" class="form-check-input" id="materialContactFormCopy">
-    									<label class="form-check-label" for="materialContactFormCopy">Send me a copy of this message</label>
-    								</div>
+										<td>
+											<select class="mdb-select md-form" id="proCPX">
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.73" title="Muy Bajo">VLO</option>
+												<option value="0.87" title="Bajo">LO</option>
+												<option value="1.17" title="Alto">MI</option>
+												<option value="1.34" title="Muy Alto">VMI</option>
+												<option value="1.74" title="Extra Alto">XHI</option>
+											</select>
+										</td>
 
-    								<!-- Send button -->
-    								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" id="btn_send">Calcular</button>
+										<td>
+											<select class="mdb-select md-form" id="proRUSE">
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.95" title="Bajo">LO</option>
+												<option value="1.07" title="Alto">MI</option>
+												<option value="1.15" title="Muy Alto">VMI</option>
+												<option value="1.24" title="Extra Alto">XHI</option>
+											</select>
+										</td>
+										<!-- FACTORES DE PLATAFORMA -->
+										<!-- FACTORES DE PLATAFORMA -->
+										<td>
+											<select class="mdb-select md-form" id="proTIME">
+												<option value="1" title="Normal">NOM</option>
+												<option value="1.11" title="Alto">MI</option>
+												<option value="1.29" title="Muy Alto">VMI</option>
+												<option value="1.63" title="Extra Alto">XHI</option>
+											</select>
+										</td>
 
-    							</form>
-    							<!-- Form -->
-    						</div>
-    					</div>
-    					<!-- Material form cocomo -->
-    				</div>
-    			</div>
-        </div>
-    </div>  <!--end row content progrman main-->
+										<td>
+											<select class="mdb-select md-form" id="proSTOR">
+												<option value="1" title="Normal">NOM</option>
+												<option value="1.05" title="Alto">MI</option>
+												<option value="1.17" title="Muy Alto">VMI</option>
+												<option value="1.46" title="Extra Alto">XHI</option>
+											</select>
+										</td>
+
+										<td>
+											<select class="mdb-select md-form" id="proPVOL">
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.87" title="Bajo">MI</option>
+												<option value="1.15" title="Alto">MI</option>
+												<option value="1.30" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+										<!-- ==================FACTOR PERSONAL==================== -->
+										<!-- ==================FACTOR PERSONAL==================== -->
+										<!-- ==================FACTOR PERSONAL==================== -->
+										<td>
+											<select class="mdb-select md-form" id="proACAP">
+												<option value="1.42" title="Muy Bajo">VLO</option>
+												<option value="1.19" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.85" title="Alto">MI</option>
+												<option value="0.71" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+
+										<td>
+											<select class="mdb-select md-form" id="proAEXP">
+												<option value="1.22" title="Muy Bajo">VLO</option>
+												<option value="1.10" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.88" title="Alto">MI</option>
+												<option value="0.81" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+										<td>
+											<select class="mdb-select md-form" id="proPCAP">
+												<option value="1.34" title="Muy Bajo">VLO</option>
+												<option value="1.15" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.88" title="Alto">MI</option>
+												<option value="0.76" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+										<td>
+											<select class="mdb-select md-form" id="proPEXP">
+												<option value="1.19" title="Muy Bajo">VLO</option>
+												<option value="1.09" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.91" title="Alto">MI</option>
+												<option value="0.85" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+										<td>
+											<select class="mdb-select md-form" id="proLTEX">
+												<option value="1.20" title="Muy Bajo">VLO</option>
+												<option value="1.09" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.91" title="Alto">MI</option>
+												<option value="0.84" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+										<td>
+											<select class="mdb-select md-form" id="proPCON">
+												<option value="1.29" title="Muy Bajo">VLO</option>
+												<option value="1.12" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.90" title="Alto">MI</option>
+												<option value="0.81" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+
+
+										<!-- ================PROYECTO =====================
+										================PROYECTO =====================
+										================PROYECTO ===================== -->
+										<td>
+											<select class="mdb-select md-form" id="proTOOL">
+												<option value="1.17" title="Muy Bajo">VLO</option>
+												<option value="1.09" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.90" title="Alto">MI</option>
+												<option value="0.78" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+
+										<td>
+											<select class="mdb-select md-form" id="prSCED">
+												<option value="1.43" title="Muy Bajo">VLO</option>
+												<option value="1.14" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="1" title="Alto">MI</option>
+												<option value="1" title="Muy Alto">VMI</option>
+											</select>
+										</td>
+
+										<td>
+											<select class="mdb-select md-form" id="prSITE">
+												<option value="1.22" title="Muy Bajo">VLO</option>
+												<option value="1.09" title="Bajo">LO</option>
+												<option value="1" title="Normal">NOM</option>
+												<option value="0.93" title="Alto">MI</option>
+												<option value="0.86" title="Muy Alto">VMI</option>
+												<option value="0.80" title="Extra Alto">XHI</option>
+											</select>
+										</td>
+										
+									</TABLE>
+									
+								</div>
+								<!-- //=============FACTORES DE ESCALA  // -->
+								<!-- //=============FACTORES DE ESCALA  // -->
+								<!-- //=============FACTORES DE ESCALA  // -->
+								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño">Factor Escala wj</label>
+								<div class="md-form" >
+									<table class="table" BORDER>
+										  <tr class="black white-text">
+											<th COLSPAN=1 title="Precedencia">PREC</th>
+											<th COLSPAN=1  title="Flexibilidad en el desarrollo">FLEX</th>
+											<th COLSPAN=1  title=" Arquitectura/Resolución de riesgo">RESL</th>
+											<th COLSPAN=1  title="Cohesión de equipo">TEAM</th>
+											<th COLSPAN=1  title="Madurez del proceso">PMAT</th>
+										  </tr>
+											  <td>
+												<select class="mdb-select md-form" id="proPREC">
+													<option value="3.72" title="Normal">NOM</option>
+													<option value="6.20" title="Muy Bajo">VLO</option>
+													<option value="4.96" title="Bajo">LO</option>
+													<option value="2.48" title="Alto">MI</option>
+													<option value="1.24" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+											
+											  <td>
+												<select class="mdb-select md-form" id="proFLEX">
+													<option value="3.04" title="Normal">NOM</option>
+													<option value="5.07" title="Muy Bajo">VLO</option>
+													<option value="4.05" title="Bajo">LO</option>
+													<option value="2.03" title="Alto">MI</option>
+													<option value="1.01" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+
+											  <td>
+												<select class="mdb-select md-form" id="proRESL">
+													<option value="4.24" title="Normal">NOM</option>
+													<option value="7.07" title="Muy Bajo">VLO</option>
+													<option value="5.65" title="Bajo">LO</option>
+													<option value="2.83" title="Alto">MI</option>
+													<option value="1.41" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+											  <td>
+												<select class="mdb-select md-form" id="proTEAM">
+													<option value="3.29" title="Normal">NOM</option>
+													<option value="5.48" title="Muy Bajo">VLO</option>
+													<option value="4.36" title="Bajo">LO</option>
+													<option value="2.19" title="Alto">MI</option>
+													<option value="1.10" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+											  <td>
+												<select class="mdb-select md-form" id="proPMAT">
+													<option value="4.68" title="Normal">NOM</option>
+													<option value="7.80" title="Muy Bajo">VLO</option>
+													<option value="6.24" title="Bajo">LO</option>
+													<option value="3.12" title="Alto">MI</option>
+													<option value="1.56" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+									  </table>
+								</div>
+
+
+
+
+								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño"> Factores del proyecto. Modelo Post-Arquitectura.[COCOMO II.0]
+								</label>
+								<div class="md-form" >
+									<table class="table" BORDER>
+										  <tr class="black white-text">
+											<th COLSPAN=1 title="Precedencia">PREC</th>
+											<th COLSPAN=1  title="Flexibilidad en el desarrollo">FLEX</th>
+											<th COLSPAN=1  title=" Arquitectura/Resolución de riesgo">RESL</th>
+											<th COLSPAN=1  title="Cohesión de equipo">TEAM</th>
+											<th COLSPAN=1  title="Madurez del proceso">PMAT</th>
+										  </tr>
+											  <td>
+												<select class="mdb-select md-form" id="proPREC">
+													<option value="3.72" title="Normal">NOM</option>
+													<option value="6.20" title="Muy Bajo">VLO</option>
+													<option value="4.96" title="Bajo">LO</option>
+													<option value="2.48" title="Alto">MI</option>
+													<option value="1.24" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+											
+											  <td>
+												<select class="mdb-select md-form" id="proFLEX">
+													<option value="3.04" title="Normal">NOM</option>
+													<option value="5.07" title="Muy Bajo">VLO</option>
+													<option value="4.05" title="Bajo">LO</option>
+													<option value="2.03" title="Alto">MI</option>
+													<option value="1.01" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+
+											  <td>
+												<select class="mdb-select md-form" id="proRESL">
+													<option value="4.24" title="Normal">NOM</option>
+													<option value="7.07" title="Muy Bajo">VLO</option>
+													<option value="5.65" title="Bajo">LO</option>
+													<option value="2.83" title="Alto">MI</option>
+													<option value="1.41" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+											  <td>
+												<select class="mdb-select md-form" id="proTEAM">
+													<option value="3.29" title="Normal">NOM</option>
+													<option value="5.48" title="Muy Bajo">VLO</option>
+													<option value="4.36" title="Bajo">LO</option>
+													<option value="2.19" title="Alto">MI</option>
+													<option value="1.10" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+											  <td>
+												<select class="mdb-select md-form" id="proPMAT">
+													<option value="4.68" title="Normal">NOM</option>
+													<option value="7.80" title="Muy Bajo">VLO</option>
+													<option value="6.24" title="Bajo">LO</option>
+													<option value="3.12" title="Alto">MI</option>
+													<option value="1.56" title="Muy Alto">VMI</option>
+													<option value="0.0" title="Extra">XMI</option>
+												</select>
+											  </td>
+									  </table>
+								</div>
+
+								<!-- Copy -->
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="materialContactFormCopy">
+									<label class="form-check-label" for="materialContactFormCopy">Send me a copy of this
+										message</label>
+								</div>
+
+								<!-- Send button -->
+								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+									type="submit" id="btn_send">Calcular</button>
+
+							</form>
+							<!-- Form -->
+						</div>
+					</div>
+					<!-- Material form cocomo -->
+				</div>
+
+				<div class="col-lg-12">
+					<form action="#" method="post">
+						<div class="card-body px-lg-5 pt-0">
+							
+							<TABLE BORDER class="table">
+								<TR class="black white-text dataAfter">
+									<TH COLSPAN=1 title="Numero de Modulo">#</TH>
+									<TH COLSPAN=1 title="Nombre Modulo">Name</TH>
+									<TH COLSPAN=1 title="Numero de Lienas de Código">SLOC</TH>
+									<TH COLSPAN=1 title="">EAF</TH>
+									<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto">PM Nominal Mes Persona</TH>
+								
+								</TR>
+								
+								<!-- DATA DESDE JS -->
+							</TABLE>
+						</div>
+						<input type="submit" name="btn_pagar" value="Calcular" class="btn btn-success col-md-12">
+					</form>
+					
+				</div>
+				<div class="col-log-6">
+					<div class="card-body px-lg-5 pt-0">
+						<div class="cart-calculator-wrapper">
+							<div class="cart-calculate-items">
+								<h3>Resumen</h3>
+								<div class="table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="total">
+												<td>Total SLOCK</td>
+												<td class="totalSlock">0</td>
+											</tr>
+											<tr class="total">
+												<td title="Es el esfuerzo Nominal ajustado por 7 factores, que reflejan otros aspectos propios del proyecto que afectan al esfuerzo necesario para la ejecución del mism">Esfuerzo Nominal (Estimadado) PMNominal</td>
+												<td class="esfuerzoNominal">0</td>
+											</tr>
+											<tr class="total">
+												<td >Productividad del Proyecto (KSLOC/PM)Nomlna</td>
+												<td class="productividadNominal">0</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						
+							<input type="hidden" id="descuentoId" name="descuento" value="50">
+							<input type="hidden" id="limiteId" name="limite" value="5">
+							<!-- <a href="checkout.html" class="sqr-btn d-block">Proceed To Checkout</a> -->
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end row content progrman main-->
 	<!-- Footer -->
 	<footer class="page-footer font-small bg-dark darken-3">
 
 		<!-- Footer Elements -->
 		<div class="container">
-		
+
 			<!-- Grid row-->
 			<div class="row">
-	  
+
 				<!-- Grid column -->
 				<div class="col-md-12 py-5">
 					<div class="mb-5 flex-center">
-		  
+
 						<!-- Facebook -->
 						<a class="fb-ic">
-						  <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+							<i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
 						</a>
 						<!-- Twitter -->
 						<a class="tw-ic">
-						  <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+							<i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
 						</a>
 						<!-- Google +-->
 						<a class="gplus-ic">
-						  <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+							<i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
 						</a>
 						<!--Linkedin -->
 						<a class="li-ic">
-						  <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+							<i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
 						</a>
 						<!--Instagram-->
 						<a class="ins-ic">
-						  <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+							<i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
 						</a>
 						<!--Pinterest-->
 						<a class="pin-ic">
-						  <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+							<i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
 						</a>
 					</div>
 				</div>
@@ -177,19 +560,19 @@
 			<!-- Grid row-->
 		</div>
 		<!-- Footer Elements -->
-	  
+
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">© 2020 Copyright:
-		  <a href="https://mdbootstrap.com/"> unl</a>
+			<a href="https://mdbootstrap.com/"> unl</a>
 		</div>
 		<!-- Copyright -->
-		
+
 	</footer>
 	<!-- Footer -->
-	
+
 	<!-- jQuery -->
-	<script type="text/javascript" src="js/jquery.min.js"></script> 
-	  
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
 	<!-- Bootstrap tooltips -->
 	<script type="text/javascript" src="js/popper.min.js"></script>
 	<!-- Bootstrap core JavaScript -->
@@ -204,5 +587,9 @@
 	<script type="text/javascript" src="../js/sprintf.min.js"></script>
 	<!-- Your custom scripts (optional) -->
 	<script type="text/javascript" src="../../controler/appCocomos.js"></script>
+	<script type="text/javascript" src="../../controler/eaf.js"></script>
+	<script type="text/javascript" src="../../view/table.js"></script>
+	
 </body>
+
 </html>
