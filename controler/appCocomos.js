@@ -276,6 +276,12 @@ function addToTotalResults(c_numLines, c_numBlank, c_numComment, c_tlines)
 
 		console.log(`%c${sResult}`, "color:#04B404");
 		console.log("%cFinal del procesamiento", "color:#819FF7");
+
+		// Guardar los datos en un localStorage
+		localStorage.setItem('ntloc', n_tloc);
+		localStorage.setItem('ntbloc', n_tbloc);
+		localStorage.setItem('ntcloc', n_tcloc);
+		localStorage.setItem('ntltotal', n_tltotal);
 	}
 }
 
