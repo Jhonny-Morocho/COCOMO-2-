@@ -88,13 +88,54 @@
 										<button class="btn-save btn btn-primary btn-sm" id="btn_excl">Guardar</button>
 									</div>
 								</div>
+
+							
+								<!-- Send button -->
+								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+									type="submit" id="btn_send">Calcular</button>
+
+							</form>
+							<!-- Form -->
+						</div>
+					</div>
+					<!-- Material form cocomo -->
+				</div>
+
+<!-- 
+				========================================================SEGUNDO FORMULARIO ===============================================
+				========================================================SEGUNDO FORMULARIO ===============================================
+				========================================================SEGUNDO FORMULARIO ===============================================
+				========================================================SEGUNDO FORMULARIO =============================================== -->
+				<div class="col-12  formulario">
+					<!-- Material form contact -->
+					<div class="card">
+						<h5 class="card-header info-color white-text text-center py-4 bg-dark">
+							<strong>Parametros de Configuracion 2</strong>
+						</h5>
+
+						<!--Card content-->
+						<div class="card-body px-lg-5 pt-0">
+
+							<!-- Form -->
+							<form style="color: #757575;" action="#!" id="idformCocommo">
+								<!-- ============NOMBRE DEL MODULO============ -->
+								<div class="md-form mt-3">
+									<input type="text" id="materialSubscriptionFormPasswords" class="form-control"  name="nombreModulo" required>
+									<label for="materialSubscriptionFormPasswords">Nombre Modulo</label>
+								</div>
+								<!-- ============LINEAS DE CODIGO============ -->
+								<div class="md-form mt-3">
+									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="soloc" required>
+									<label for="materialSubscriptionFormPasswords">SLOC</label>
+								</div>
+					
 								 <!-- ============COSTO MES PERSONA============ -->
 								<div class="md-form mt-3">
-									<input type="number" id="materialSubscriptionFormPasswords" class="form-control" min="500" required>
+									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="sueldoMesPersona" required value="5370">
 									<label for="materialSubscriptionFormPasswords">Costo Mes/Persona</label>
 								</div>
-								<!--Message-->
-								<label for="materialContactFormMessage">EM (Multiplicadores de esfuerzo) POST PRODUCCION</label>
+								<!-- ============EM (Multiplicadores de esfuerzo) POST PRODUCCION ============-->
+								<label for="materialContactFormMessage"> Factores de Costo Post PRODUCCION \[ {EAF_M{(Multiplicadores-de-esfuerzo)}}\]</label>
 								<div class="md-form" >
 									<TABLE BORDER  class="table">
 										<TR class="black white-text">
@@ -103,7 +144,7 @@
 											<TH COLSPAN=6 title="Multiplicadores de Efuerzo">Personal</TH>
 											<TH COLSPAN=3 title="Multiplicadores de Efuerzo">Proyeto</TH>
 										</TR>
-										<TR class="formEMdata" >
+										<TR  >
 											<TH title="Confiabilidad requerida">RELY</TH>
 											<TH title="Tamaño de BD">DATA</TH>
 											<TH title="Documentación acorde a las diferentas etapas del ciclo de vida">DOCU</TH>
@@ -128,37 +169,36 @@
 											
 										</TR>
 										<td>
-									
-										  	<select class="mdb-select md-form" id="proRELY">
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.82" title="Muy Bajo">VLO</option>
-												<option value="0.92" title="Bajo">LO</option>
-												<option value="1.10" title="Alto">MI</option>
-												<option value="1.26" title="Muy Alto">VMI</option>
+										  	<select class="mdb-select md-form" id="proRELY" name="proRELY">
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="0.82" title="Muy Bajo">VLO(0.82)</option>
+												<option value="0.92" title="Bajo">LO(0.92)</option>
+												<option value="1.10" title="Alto">MI(1.10)</option>
+												<option value="1.26" title="Muy Alto">VMI(1.26)</option>
 											</select>
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="proData">
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.90" title="Bajo">LO</option>
-												<option value="1.14" title="Alto">MI</option>
-												<option value="1.26" title="Muy Alto">VMI</option>
+											<select class="mdb-select md-form" id="proData" name="proData">
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="0.90" title="Bajo">LO(0.90)</option>
+												<option value="1.14" title="Alto">MI(1.14)</option>
+												<option value="1.26" title="Muy Alto">VMI(1.26)</option>
 											</select>
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="proDOCU">
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.81" title="Muy Bajo">VLO</option>
-												<option value="0.91" title="Bajo">LO</option>
-												<option value="1.11" title="Alto">MI</option>
-												<option value="1.23" title="Muy Alto">VMI</option>
+											<select class="mdb-select md-form" id="proDOCU" name="proDOCU">
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="0.81" title="Muy Bajo">VLO(0.81)</option>
+												<option value="0.91" title="Bajo">LO(0.91)</option>
+												<option value="1.11" title="Alto">MI(1.11)</option>
+												<option value="1.23" title="Muy Alto">VMI(1.23)</option>
 											</select>
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="proCPX">
+											<select class="mdb-select md-form" id="proCPX" name="proCPX">
 												<option value="1" title="Normal">NOM</option>
 												<option value="0.73" title="Muy Bajo">VLO</option>
 												<option value="0.87" title="Bajo">LO</option>
@@ -169,7 +209,7 @@
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="proRUSE">
+											<select class="mdb-select md-form" id="proRUSE" name="proRUSE">
 												<option value="1" title="Normal">NOM</option>
 												<option value="0.95" title="Bajo">LO</option>
 												<option value="1.07" title="Alto">MI</option>
@@ -180,7 +220,7 @@
 										<!-- FACTORES DE PLATAFORMA -->
 										<!-- FACTORES DE PLATAFORMA -->
 										<td>
-											<select class="mdb-select md-form" id="proTIME">
+											<select class="mdb-select md-form" id="proTIME" name="proTIME">
 												<option value="1" title="Normal">NOM</option>
 												<option value="1.11" title="Alto">MI</option>
 												<option value="1.29" title="Muy Alto">VMI</option>
@@ -189,7 +229,7 @@
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="proSTOR">
+											<select class="mdb-select md-form" id="proSTOR" name="proSTOR">
 												<option value="1" title="Normal">NOM</option>
 												<option value="1.05" title="Alto">MI</option>
 												<option value="1.17" title="Muy Alto">VMI</option>
@@ -198,7 +238,7 @@
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="proPVOL">
+											<select class="mdb-select md-form" id="proPVOL" name="proPVOL">
 												<option value="1" title="Normal">NOM</option>
 												<option value="0.87" title="Bajo">MI</option>
 												<option value="1.15" title="Alto">MI</option>
@@ -209,7 +249,7 @@
 										<!-- ==================FACTOR PERSONAL==================== -->
 										<!-- ==================FACTOR PERSONAL==================== -->
 										<td>
-											<select class="mdb-select md-form" id="proACAP">
+											<select class="mdb-select md-form" id="proACAP" name="proACAP">
 												<option value="1.42" title="Muy Bajo">VLO</option>
 												<option value="1.19" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -219,7 +259,7 @@
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="proAEXP">
+											<select class="mdb-select md-form" id="proAEXP" name="proAEXP">
 												<option value="1.22" title="Muy Bajo">VLO</option>
 												<option value="1.10" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -228,7 +268,7 @@
 											</select>
 										</td>
 										<td>
-											<select class="mdb-select md-form" id="proPCAP">
+											<select class="mdb-select md-form" id="proPCAP" name="proPCAP">
 												<option value="1.34" title="Muy Bajo">VLO</option>
 												<option value="1.15" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -237,7 +277,7 @@
 											</select>
 										</td>
 										<td>
-											<select class="mdb-select md-form" id="proPEXP">
+											<select class="mdb-select md-form" id="proPEXP" name="proPEXP">
 												<option value="1.19" title="Muy Bajo">VLO</option>
 												<option value="1.09" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -246,7 +286,7 @@
 											</select>
 										</td>
 										<td>
-											<select class="mdb-select md-form" id="proLTEX">
+											<select class="mdb-select md-form" id="proLTEX" name="proLTEX">
 												<option value="1.20" title="Muy Bajo">VLO</option>
 												<option value="1.09" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -255,7 +295,7 @@
 											</select>
 										</td>
 										<td>
-											<select class="mdb-select md-form" id="proPCON">
+											<select class="mdb-select md-form" id="proPCON" name="proPCON">
 												<option value="1.29" title="Muy Bajo">VLO</option>
 												<option value="1.12" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -269,7 +309,7 @@
 										================PROYECTO =====================
 										================PROYECTO ===================== -->
 										<td>
-											<select class="mdb-select md-form" id="proTOOL">
+											<select class="mdb-select md-form" id="proTOOL" name="proTOOL">
 												<option value="1.17" title="Muy Bajo">VLO</option>
 												<option value="1.09" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -279,7 +319,7 @@
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="prSCED">
+											<select class="mdb-select md-form" id="prSCED" name="prSCED">
 												<option value="1.43" title="Muy Bajo">VLO</option>
 												<option value="1.14" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -289,7 +329,7 @@
 										</td>
 
 										<td>
-											<select class="mdb-select md-form" id="prSITE">
+											<select class="mdb-select md-form" id="prSITE" name="prSITE">
 												<option value="1.22" title="Muy Bajo">VLO</option>
 												<option value="1.09" title="Bajo">LO</option>
 												<option value="1" title="Normal">NOM</option>
@@ -316,7 +356,7 @@
 											<th COLSPAN=1  title="Madurez del proceso">PMAT</th>
 										  </tr>
 											  <td>
-												<select class="mdb-select md-form" id="proPREC">
+												<select class="mdb-select md-form" id="proPREC" name="proPREC">
 													<option value="3.72" title="Normal">NOM</option>
 													<option value="6.20" title="Muy Bajo">VLO</option>
 													<option value="4.96" title="Bajo">LO</option>
@@ -327,7 +367,7 @@
 											  </td>
 											
 											  <td>
-												<select class="mdb-select md-form" id="proFLEX">
+												<select class="mdb-select md-form" id="proFLEX" name="proFLEX">
 													<option value="3.04" title="Normal">NOM</option>
 													<option value="5.07" title="Muy Bajo">VLO</option>
 													<option value="4.05" title="Bajo">LO</option>
@@ -338,7 +378,7 @@
 											  </td>
 
 											  <td>
-												<select class="mdb-select md-form" id="proRESL">
+												<select class="mdb-select md-form" id="proRESL" name="proRESL">
 													<option value="4.24" title="Normal">NOM</option>
 													<option value="7.07" title="Muy Bajo">VLO</option>
 													<option value="5.65" title="Bajo">LO</option>
@@ -348,7 +388,7 @@
 												</select>
 											  </td>
 											  <td>
-												<select class="mdb-select md-form" id="proTEAM">
+												<select class="mdb-select md-form" id="proTEAM" name="proTEAM">
 													<option value="3.29" title="Normal">NOM</option>
 													<option value="5.48" title="Muy Bajo">VLO</option>
 													<option value="4.36" title="Bajo">LO</option>
@@ -358,7 +398,7 @@
 												</select>
 											  </td>
 											  <td>
-												<select class="mdb-select md-form" id="proPMAT">
+												<select class="mdb-select md-form" id="proPMAT" name="proPMAT">
 													<option value="4.68" title="Normal">NOM</option>
 													<option value="7.80" title="Muy Bajo">VLO</option>
 													<option value="6.24" title="Bajo">LO</option>
@@ -370,82 +410,7 @@
 									  </table>
 								</div>
 
-
-
-
-								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
-								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
-								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
-								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño"> Factores del proyecto. Modelo Post-Arquitectura.[COCOMO II.0]
-								</label>
-								<div class="md-form" >
-									<table class="table" BORDER>
-										  <tr class="black white-text">
-											<th COLSPAN=1 title="Precedencia">PREC</th>
-											<th COLSPAN=1  title="Flexibilidad en el desarrollo">FLEX</th>
-											<th COLSPAN=1  title=" Arquitectura/Resolución de riesgo">RESL</th>
-											<th COLSPAN=1  title="Cohesión de equipo">TEAM</th>
-											<th COLSPAN=1  title="Madurez del proceso">PMAT</th>
-										  </tr>
-											  <td>
-												<select class="mdb-select md-form" id="proPREC">
-													<option value="3.72" title="Normal">NOM</option>
-													<option value="6.20" title="Muy Bajo">VLO</option>
-													<option value="4.96" title="Bajo">LO</option>
-													<option value="2.48" title="Alto">MI</option>
-													<option value="1.24" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
-												</select>
-											  </td>
-											
-											  <td>
-												<select class="mdb-select md-form" id="proFLEX">
-													<option value="3.04" title="Normal">NOM</option>
-													<option value="5.07" title="Muy Bajo">VLO</option>
-													<option value="4.05" title="Bajo">LO</option>
-													<option value="2.03" title="Alto">MI</option>
-													<option value="1.01" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
-												</select>
-											  </td>
-
-											  <td>
-												<select class="mdb-select md-form" id="proRESL">
-													<option value="4.24" title="Normal">NOM</option>
-													<option value="7.07" title="Muy Bajo">VLO</option>
-													<option value="5.65" title="Bajo">LO</option>
-													<option value="2.83" title="Alto">MI</option>
-													<option value="1.41" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
-												</select>
-											  </td>
-											  <td>
-												<select class="mdb-select md-form" id="proTEAM">
-													<option value="3.29" title="Normal">NOM</option>
-													<option value="5.48" title="Muy Bajo">VLO</option>
-													<option value="4.36" title="Bajo">LO</option>
-													<option value="2.19" title="Alto">MI</option>
-													<option value="1.10" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
-												</select>
-											  </td>
-											  <td>
-												<select class="mdb-select md-form" id="proPMAT">
-													<option value="4.68" title="Normal">NOM</option>
-													<option value="7.80" title="Muy Bajo">VLO</option>
-													<option value="6.24" title="Bajo">LO</option>
-													<option value="3.12" title="Alto">MI</option>
-													<option value="1.56" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
-												</select>
-											  </td>
-									  </table>
-								</div>
-
-					
 							
-								
-
 								<!-- Send button -->
 								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
 									type="submit" id="btn_send">Calcular</button>
@@ -458,29 +423,103 @@
 				</div>
 
 				<div class="col-lg-12">
-					<form action="#" method="post" id="estimar">
-						<div class="card-body px-lg-5 pt-0 ">
-							
-							<TABLE BORDER class="table">
-								<TR class="black white-text dataAfter">
-									<TH COLSPAN=1 title="Numero de Modulo">#</TH>
-									<TH COLSPAN=1 title="Nombre Modulo">Name</TH>
-									<TH COLSPAN=1 title="Numero de Lienas de Código">SLOC</TH>
-									<TH COLSPAN=1 title="Factor de Ajuste para cada modulo">EAF</TH>
-									<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto"><p>\[ {PM_{Nominal Mes Persona}}\]</p></TH>
-									<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF"><p>\[ {PM_{Estimado Módulo(Mes Persona)}}\]</p></TH>
-									<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">Costo Mes-Persona Dolares</TH>
-									<TH colspan="1" title="Costo del modulo"><p>\[ {Costo_{(estimado,modulo)}}\]</p></TH>
+					<div class="card ">
+						<div class="card-body px-lg-5 pt-0">
+							<h5 class="card-header info-color white-text text-center py-4 bg-dark">
+								<strong>Factores del proyecto. Modelo Post-Arquitectura.[COCOMO II.0]</strong>
+							</h5>
+							<form action="#" method="post" id="idFormCalcularEstimacion">
+								<div class="card-body px-lg-5 pt-0 ">
+									<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+									<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+									<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+									<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño"> Factores del proyecto. Modelo Post-Arquitectura.[COCOMO II.0]</label>
+									<div class="md-form" >
+										<table class="table" BORDER >
+												<tr class="black white-text">
+												<th COLSPAN=1 title="Precedencia">PREC</th>
+												<th COLSPAN=1  title="Flexibilidad en el desarrollo">FLEX</th>
+												<th COLSPAN=1  title=" Arquitectura/Resolución de riesgo">RESL</th>
+												<th COLSPAN=1  title="Cohesión de equipo">TEAM</th>
+												<th COLSPAN=1  title="Madurez del proceso">PMAT</th>
+												</tr>
+													<td>
+													<select class="md-form" id="proPREC" name="proPREC">
+														<option value="3.72" title="Normal">NOM</option>
+														<option value="6.20" title="Muy Bajo">VLO</option>
+														<option value="4.96" title="Bajo">LO</option>
+														<option value="2.48" title="Alto">MI</option>
+														<option value="1.24" title="Muy Alto">VMI</option>
+														<option value="0.0" title="Extra">XMI</option>
+													</select>
+													</td>
+												
+													<td>
+													<select class=" md-form" id="proFLEX" name="proFLEX">
+														<option value="3.04" title="Normal">NOM</option>
+														<option value="5.07" title="Muy Bajo">VLO</option>
+														<option value="4.05" title="Bajo">LO</option>
+														<option value="2.03" title="Alto">MI</option>
+														<option value="1.01" title="Muy Alto">VMI</option>
+														<option value="0.0" title="Extra">XMI</option>
+													</select>
+													</td>
+		
+													<td>
+													<select class=" md-form" id="proRESL" name="proRESL">
+														<option value="4.24" title="Normal">NOM</option>
+														<option value="7.07" title="Muy Bajo">VLO</option>
+														<option value="5.65" title="Bajo">LO</option>
+														<option value="2.83" title="Alto">MI</option>
+														<option value="1.41" title="Muy Alto">VMI</option>
+														<option value="0.0" title="Extra">XMI</option>
+													</select>
+													</td>
+													<td>
+													<select class=" md-form" id="proTEAM" name="proTEAM">
+														<option value="3.29" title="Normal">NOM</option>
+														<option value="5.48" title="Muy Bajo">VLO</option>
+														<option value="4.36" title="Bajo">LO</option>
+														<option value="2.19" title="Alto">MI</option>
+														<option value="1.10" title="Muy Alto">VMI</option>
+														<option value="0.0" title="Extra">XMI</option>
+													</select>
+													</td>
+													<td>
+													<select class=" md-form" id="proPMAT" name="proPMAT">
+														<option value="4.68" title="Normal">NOM</option>
+														<option value="7.80" title="Muy Bajo">VLO</option>
+														<option value="6.24" title="Bajo">LO</option>
+														<option value="3.12" title="Alto">MI</option>
+														<option value="1.56" title="Muy Alto">VMI</option>
+														<option value="0.0" title="Extra">XMI</option>
+													</select>
+													</td>
+											</table>
+									</div>
+		
 								
-								</TR>
-								
-								<!-- DATA DESDE JS -->
-							</TABLE>
-							<input type="submit" name="btn_pagar" value="Calcular" class="btn btn-success col-md-12">
+									<div class="md-form" >
+										<TABLE BORDER class="table">
+											<TR class="black white-text dataAfter">
+												<TH COLSPAN=1 title="Numero de Modulo">#</TH>
+												<TH COLSPAN=1 title="Nombre Modulo">Name</TH>
+												<TH COLSPAN=1 title="Numero de Lienas de Código">SLOC</TH>
+												<TH COLSPAN=1 title="Factor de Ajuste para cada modulo">EAF</TH>
+												<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto"><p>\[ {PM_{Nominal Mes Persona}}\]</p></TH>
+												<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF"><p>\[ {PM_{Estimado Módulo(Mes Persona)}}\]</p></TH>
+												<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">Costo Mes-Persona Dolares</TH>
+												<TH colspan="1" title="Costo del modulo"><p>\[ {Costo_{(estimado,modulo)}}\]</p></TH>
+											
+											</TR>
+											<!-- DATA DESDE JS -->
+										</TABLE>
+									</div>
+								</div>
+								<input type="submit" name="btn_pagar" value="Calcular" class="btn btn-success col-md-12">
+							</form>
 						</div>
-						
-					</form>
-					
+					</div>
 				</div>
 				<div class="col-log-6">
 					<div class="card-body px-lg-5 pt-0">
