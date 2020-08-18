@@ -11,9 +11,13 @@ var emMultiplicadorEsfuerzoPostProduccion=[];
 var factorEscala_B=0;
 var dataFormulario={};
 var esfuerzoNominalPM_porModulo=[];
+var esfuerzoPm_estimado_modulo=[];
 var PMnominal=0;
 var ProductividadNominal=0;
 var factorAjusteEsfuerzoEAF=[];
+var TDEV=0;
+var sumaNodoPm_estimadoTotal=0;
+
 const A=2.94;//es una constante que captura los efectos lineales sobre el esfuerzo de acuerdo a la variación del tamaño
 //===============================Obtener datos del formulario=============================//
 
@@ -29,8 +33,8 @@ $('#idformCocommo').on('submit',function(e){
     //guardo dato sueldoMesPersona del modulo
     sueldoMesPersona.push(datos[2].value);
     //guardo dato multiplicadores de ajuste EAF (factos de costo post produccion)
+    //PASO 8. Factor de Ajuste del Esfuerzo DE LA TABLA Costo Post PRODUCCION
     var auxEAF=1;// lo inicalizo en 1 , por q si le pongo cero todo se hace cero
-    var dataAux=[0.87,0.87 ,0.85,1.15, 0.81 ,1.09 ,1.09 , 0.90];
     for (let index = 3; index < 20; index++) {
          auxEAF=Number(datos[index].value)*auxEAF;
      }
@@ -38,6 +42,7 @@ $('#idformCocommo').on('submit',function(e){
     //almaceno los datos en un objeto
     dataFormulario={nombreModulo:arrayNombreModulo,
                         sloc:arraynumeroSlocModulo,
+                        sueldo:sueldoMesPersona,
                     EAF:factorAjusteEsfuerzoEAF};
 
     console.log(dataFormulario);
@@ -57,6 +62,7 @@ $('#idFormCalcularEstimacion').on('submit',function(e){
     //obtener todos los nodos soloc
     var nodosSoloc=$('.soloc');
 
+
     //determinar el tamaño en SLOC del sistema
     tamañoSlocSistema(nodosSoloc);
      //obtener el factor de escala es global
@@ -72,7 +78,27 @@ $('#idFormCalcularEstimacion').on('submit',function(e){
     // Calcular Esfuerzo Nominal por Módulo
     PM_porModulo();
 
-    //Calcular Factor de Ajuste del Esfuerzo 
+   
+      // actulizar la tabla con los nuevos datos
+    try {
+        imprimirTabla(dataFormulario,PM_porModulo());
+        // una vez que tenga la tabla impresa ya se puede tomar los nodos para hacer los calculos del PM_estimado total
+         //Suma los PM_estimado de cada fila y realizar el total 
+        var nodoPmEstimado=$('.classPM_estimado');
+        PM_estimadoTotal(nodoPmEstimado);
+        //se impre en la tabla de resumene
+        $('.esfuerzoEstimadoDelSistemTotal').html(PM_estimadoTotal(nodoPmEstimado));
+
+
+        //tiempo de dasarrollo
+        tiempoDesarrolo(PM_estimadoTotal(nodoPmEstimado),factorEscala_B);
+
+        //calculo del mes persona vuelvo actulizar la tabla
+        //imprimirTabla(dataFormulario,PM_porModulo());
+    } catch (error) {
+        //console.log("No existen datos en la tabla"); 
+        alert("No existen Datos en la tabla ");
+    }
 });
 
 
@@ -95,6 +121,7 @@ function factorExponencialDeEscala_B(auxB){
     //factor de escala a nivel nominal
     var B=0;
     B=(1.01+0.01*auxB).toFixed(2);
+    $('.classB').html(B);
     return B;
 }
 
@@ -118,17 +145,40 @@ function esfuerzoNominalPm_nominal(sloc){
         // Pm_proModulo= Sloc_porModulo/ProductividadNominal
         esfuerzoNominalPM_porModulo[index]=(arraynumeroSlocModulo[index]/ProductividadNominal).toFixed(2);
     }
-    // actulizar la tabla con los nuevos datos
-    try {
-        imprimirTabla(dataFormulario,esfuerzoNominalPM_porModulo);
-    } catch (error) {
-        //console.log("No existen datos en la tabla"); 
-        alert("No existen Datos en la tabla ");
-    }
-    //return   esfuerzoNominalPM_porModulo;
+    return   esfuerzoNominalPM_porModulo;
  }
 
- // PASO 8. Factor de Ajuste del Esfuerzo 
- function calcularEAF(dataFormulario){
-    return proRELY*proData*proCPLX*proTIME*proSTOR*proVIRT*proTURN*proACAP*proAEXP*proPCAP*proVEXP*proMODP*proTOOL*proSCED;
-  }
+// PASO 7 . ANALIZAR LOS AJUSTES DESDE LAS TABLAS PARA CALIBRAR
+//=============SOLO ANALISIS=================
+//=============SOLO ANALISIS=================
+
+//PASO 8. CALCULAR EL FACTOR DE AJUSTE EN EL SUBMIT DEL POST
+//========EN EL POST DEL FORMULARIO ==========
+//========EN EL POST DEL FORMULARIO ==========
+
+//PASO 9. Esfuerzo estimado por modulo(Pm_estimado_modulo = Pm_nominal_modulo*EAF)
+// Se realizo la operacio en el mismo lugar donde se impre los datos con objetivo de optimizar codigo
+
+
+//PASO 10. Esfuerzo Estimado del Sistema Total PM_estimado de todo el sistema
+function PM_estimadoTotal(nodosPm_estimado){
+    sumaNodoPm_estimadoTotal=0;
+    for (let index = 0; index < nodosPm_estimado.length; index++) {
+        sumaNodoPm_estimadoTotal=Number(nodosPm_estimado[index].innerText)+Number(sumaNodoPm_estimadoTotal);
+    }
+  
+    return sumaNodoPm_estimadoTotal;
+}
+
+//PASO 11. Determinar el Tiempo de desarrollo  estimado del proyecto TDEV
+function tiempoDesarrolo(Pm_estimado_total,B){
+    console.log("Xxxxx");
+    console.log();
+    //TDEV=(3.0*Math.pow(1,(0.33+0.2*(B-1.01))));
+    TDEV=(Math.pow(Pm_estimado_total,(0.33+0.2*(B-1.01)))).toFixed(2);
+    console.log(TDEV);
+    $('.timeDevEstimado').html(TDEV);
+
+    return TDEV;
+}
+

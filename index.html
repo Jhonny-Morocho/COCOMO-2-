@@ -120,12 +120,12 @@
 							<form style="color: #757575;" action="#!" id="idformCocommo">
 								<!-- ============NOMBRE DEL MODULO============ -->
 								<div class="md-form mt-3">
-									<input type="text" id="materialSubscriptionFormPasswords" class="form-control"  name="nombreModulo" required>
+									<input type="text" id="materialSubscriptionFormPasswords" class="form-control"  name="nombreModulo" required value="Quedit">
 									<label for="materialSubscriptionFormPasswords">Nombre Modulo</label>
 								</div>
 								<!-- ============LINEAS DE CODIGO============ -->
 								<div class="md-form mt-3">
-									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="soloc" required>
+									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="soloc" required value="1800">
 									<label for="materialSubscriptionFormPasswords">SLOC</label>
 								</div>
 					
@@ -137,7 +137,7 @@
 								<!-- ============EM (Multiplicadores de esfuerzo) POST PRODUCCION ============-->
 								<label for="materialContactFormMessage"> Factores de Costo Post PRODUCCION \[ {EAF_M{(Multiplicadores-de-esfuerzo)}}\]</label>
 								<div class="md-form" >
-									<TABLE BORDER  class="table">
+									<TABLE BORDER  class="table" >
 										<TR class="black white-text">
 											<TH COLSPAN=5 title="Multiplicadores de Efuerzo">Producto</TH>
 											<TH COLSPAN=3 title="Multiplicadores de Efuerzo">Plataforma</TH>
@@ -199,50 +199,50 @@
 
 										<td>
 											<select class="mdb-select md-form" id="proCPX" name="proCPX">
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.73" title="Muy Bajo">VLO</option>
-												<option value="0.87" title="Bajo">LO</option>
-												<option value="1.17" title="Alto">MI</option>
-												<option value="1.34" title="Muy Alto">VMI</option>
-												<option value="1.74" title="Extra Alto">XHI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="0.73" title="Muy Bajo">VLO(0.73)</option>
+												<option value="0.87" title="Bajo">LO(0.87)</option>
+												<option value="1.17" title="Alto">MI(1.17)</option>
+												<option value="1.34" title="Muy Alto">VMI(1.34)</option>
+												<option value="1.74" title="Extra Alto">XHI(1.74)</option>
 											</select>
 										</td>
 
 										<td>
 											<select class="mdb-select md-form" id="proRUSE" name="proRUSE">
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.95" title="Bajo">LO</option>
-												<option value="1.07" title="Alto">MI</option>
-												<option value="1.15" title="Muy Alto">VMI</option>
-												<option value="1.24" title="Extra Alto">XHI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="0.95" title="Bajo">LO(0.95)</option>
+												<option value="1.07" title="Alto">MI(1.07)</option>
+												<option value="1.15" title="Muy Alto">VMI(1.15)</option>
+												<option value="1.24" title="Extra Alto">XHI(1.24)</option>
 											</select>
 										</td>
 										<!-- FACTORES DE PLATAFORMA -->
 										<!-- FACTORES DE PLATAFORMA -->
 										<td>
 											<select class="mdb-select md-form" id="proTIME" name="proTIME">
-												<option value="1" title="Normal">NOM</option>
-												<option value="1.11" title="Alto">MI</option>
-												<option value="1.29" title="Muy Alto">VMI</option>
-												<option value="1.63" title="Extra Alto">XHI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.11" title="Alto">MI(1.11)</option>
+												<option value="1.29" title="Muy Alto">VMI(1.29)</option>
+												<option value="1.63" title="Extra Alto">XHI(1.63)</option>
 											</select>
 										</td>
 
 										<td>
 											<select class="mdb-select md-form" id="proSTOR" name="proSTOR">
-												<option value="1" title="Normal">NOM</option>
-												<option value="1.05" title="Alto">MI</option>
-												<option value="1.17" title="Muy Alto">VMI</option>
-												<option value="1.46" title="Extra Alto">XHI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.05" title="Alto">MI(1.05)</option>
+												<option value="1.17" title="Muy Alto">VMI(1.17)</option>
+												<option value="1.46" title="Extra Alto">XHI(1.46)</option>
 											</select>
 										</td>
 
 										<td>
 											<select class="mdb-select md-form" id="proPVOL" name="proPVOL">
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.87" title="Bajo">MI</option>
-												<option value="1.15" title="Alto">MI</option>
-												<option value="1.30" title="Muy Alto">VMI</option>
+												<option value="0.87" title="Bajo">MI(0.87)</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.15" title="Alto">MI(1.15)</option>
+												<option value="1.30" title="Muy Alto">VMI(1.30)</option>
 											</select>
 										</td>
 										<!-- ==================FACTOR PERSONAL==================== -->
@@ -250,57 +250,57 @@
 										<!-- ==================FACTOR PERSONAL==================== -->
 										<td>
 											<select class="mdb-select md-form" id="proACAP" name="proACAP">
-												<option value="1.42" title="Muy Bajo">VLO</option>
-												<option value="1.19" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.85" title="Alto">MI</option>
+												<option value="0.85" title="Alto">MI(0.85)</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.42" title="Muy Bajo">VLO(1.42)</option>
+												<option value="1.19" title="Bajo">LO(1.19)</option>
 												<option value="0.71" title="Muy Alto">VMI</option>
 											</select>
 										</td>
 
 										<td>
 											<select class="mdb-select md-form" id="proAEXP" name="proAEXP">
-												<option value="1.22" title="Muy Bajo">VLO</option>
-												<option value="1.10" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.88" title="Alto">MI</option>
-												<option value="0.81" title="Muy Alto">VMI</option>
+												<option value="0.81" title="Muy Alto">VMI(0.81)</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.22" title="Muy Bajo">VLO(1.22)</option>
+												<option value="1.10" title="Bajo">LO(1.10)</option>
+												<option value="0.88" title="Alto">MI(0.88)</option>
 											</select>
 										</td>
 										<td>
 											<select class="mdb-select md-form" id="proPCAP" name="proPCAP">
-												<option value="1.34" title="Muy Bajo">VLO</option>
-												<option value="1.15" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.88" title="Alto">MI</option>
-												<option value="0.76" title="Muy Alto">VMI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.34" title="Muy Bajo">VLO(1.34)</option>
+												<option value="1.15" title="Bajo">LO(1.15)</option>
+												<option value="0.88" title="Alto">MI(0.88)</option>
+												<option value="0.76" title="Muy Alto">VMI(0.76)</option>
 											</select>
 										</td>
 										<td>
 											<select class="mdb-select md-form" id="proPEXP" name="proPEXP">
-												<option value="1.19" title="Muy Bajo">VLO</option>
-												<option value="1.09" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.91" title="Alto">MI</option>
-												<option value="0.85" title="Muy Alto">VMI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.19" title="Muy Bajo">VLO(1.19)</option>
+												<option value="1.09" title="Bajo">LO(1.09)</option>
+												<option value="0.91" title="Alto">MI(0.91)</option>
+												<option value="0.85" title="Muy Alto">VMI(0.85)</option>
 											</select>
 										</td>
 										<td>
 											<select class="mdb-select md-form" id="proLTEX" name="proLTEX">
-												<option value="1.20" title="Muy Bajo">VLO</option>
-												<option value="1.09" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.91" title="Alto">MI</option>
-												<option value="0.84" title="Muy Alto">VMI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.20" title="Muy Bajo">VLO(1.20)</option>
+												<option value="1.09" title="Bajo">LO(1.09)</option>
+												<option value="0.91" title="Alto">MI(0.91)</option>
+												<option value="0.84" title="Muy Alto">VMI(0.84)</option>
 											</select>
 										</td>
 										<td>
 											<select class="mdb-select md-form" id="proPCON" name="proPCON">
-												<option value="1.29" title="Muy Bajo">VLO</option>
-												<option value="1.12" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.90" title="Alto">MI</option>
-												<option value="0.81" title="Muy Alto">VMI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.29" title="Muy Bajo">VLO(1.29)</option>
+												<option value="1.12" title="Bajo">LO(1.12)</option>
+												<option value="0.90" title="Alto">MI(0.90)</option>
+												<option value="0.81" title="Muy Alto">VMI(0.81)</option>
 											</select>
 										</td>
 
@@ -310,41 +310,41 @@
 										================PROYECTO ===================== -->
 										<td>
 											<select class="mdb-select md-form" id="proTOOL" name="proTOOL">
-												<option value="1.17" title="Muy Bajo">VLO</option>
-												<option value="1.09" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.90" title="Alto">MI</option>
-												<option value="0.78" title="Muy Alto">VMI</option>
+												<option value="0.90" title="Alto">MI(0.90)</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.17" title="Muy Bajo">VLO(1.17)</option>
+												<option value="1.09" title="Bajo">LO(1.09)</option>
+												<option value="0.78" title="Muy Alto">VMI(0.78)</option>
 											</select>
 										</td>
 
 										<td>
 											<select class="mdb-select md-form" id="prSCED" name="prSCED">
-												<option value="1.43" title="Muy Bajo">VLO</option>
-												<option value="1.14" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="1" title="Alto">MI</option>
-												<option value="1" title="Muy Alto">VMI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.43" title="Muy Bajo">VLO(1.43)</option>
+												<option value="1.14" title="Bajo">LO(1.14)</option>
+												<option value="1" title="Alto">MI(1)</option>
+												<option value="1" title="Muy Alto">VMI(1)</option>
 											</select>
 										</td>
 
 										<td>
 											<select class="mdb-select md-form" id="prSITE" name="prSITE">
-												<option value="1.22" title="Muy Bajo">VLO</option>
-												<option value="1.09" title="Bajo">LO</option>
-												<option value="1" title="Normal">NOM</option>
-												<option value="0.93" title="Alto">MI</option>
-												<option value="0.86" title="Muy Alto">VMI</option>
-												<option value="0.80" title="Extra Alto">XHI</option>
+												<option value="1" title="Normal">NOM(1)</option>
+												<option value="1.22" title="Muy Bajo">VLO(1.22)</option>
+												<option value="1.09" title="Bajo">LO(1.09)</option>
+												<option value="0.93" title="Alto">MI(0.93)</option>
+												<option value="0.86" title="Muy Alto">VMI(0.86)</option>
+												<option value="0.80" title="Extra Alto">XHI(0.80)</option>
 											</select>
 										</td>
 										
 									</TABLE>
 									
 								</div>
-								<!-- //=============FACTORES DE ESCALA  // -->
-								<!-- //=============FACTORES DE ESCALA  // -->
-								<!-- //=============FACTORES DE ESCALA  // -->
+								<!-- //=============FACTORES DE ESCALA w, j  // -->
+								<!-- //=============FACTORES DE ESCALA w, j  // -->
+								<!-- //=============FACTORES DE ESCALA w, j  // -->
 								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño">Factor Escala wj</label>
 								<div class="md-form" >
 									<table class="table" BORDER>
@@ -357,54 +357,54 @@
 										  </tr>
 											  <td>
 												<select class="mdb-select md-form" id="proPREC" name="proPREC">
-													<option value="3.72" title="Normal">NOM</option>
-													<option value="6.20" title="Muy Bajo">VLO</option>
-													<option value="4.96" title="Bajo">LO</option>
-													<option value="2.48" title="Alto">MI</option>
-													<option value="1.24" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
+													<option value="3.72" title="Normal">NOM(3.72)</option>
+													<option value="6.20" title="Muy Bajo">VLO(6.20)</option>
+													<option value="4.96" title="Bajo">LO(4.96)</option>
+													<option value="2.48" title="Alto">MI(2.48)</option>
+													<option value="1.24" title="Muy Alto">VMI(1.24)</option>
+													<option value="0.0" title="Extra">XMI(0)</option>
 												</select>
 											  </td>
 											
 											  <td>
 												<select class="mdb-select md-form" id="proFLEX" name="proFLEX">
-													<option value="3.04" title="Normal">NOM</option>
-													<option value="5.07" title="Muy Bajo">VLO</option>
-													<option value="4.05" title="Bajo">LO</option>
-													<option value="2.03" title="Alto">MI</option>
-													<option value="1.01" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
+													<option value="3.04" title="Normal">NOM(3.04)</option>
+													<option value="1.01" title="Muy Alto">VMI(1.01)</option>
+													<option value="5.07" title="Muy Bajo">VLO(5.07)</option>
+													<option value="4.05" title="Bajo">LO(4.05)</option>
+													<option value="2.03" title="Alto">MI(2.03)</option>
+													<option value="0.0" title="Extra">XMI(0)</option>
 												</select>
 											  </td>
 
 											  <td>
 												<select class="mdb-select md-form" id="proRESL" name="proRESL">
-													<option value="4.24" title="Normal">NOM</option>
-													<option value="7.07" title="Muy Bajo">VLO</option>
-													<option value="5.65" title="Bajo">LO</option>
-													<option value="2.83" title="Alto">MI</option>
-													<option value="1.41" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
+													<option value="4.24" title="Normal">NOM(4.24)</option>
+													<option value="7.07" title="Muy Bajo">VLO(7.07)</option>
+													<option value="5.65" title="Bajo">LO(5.65)</option>
+													<option value="2.83" title="Alto">MI(2.83)</option>
+													<option value="1.41" title="Muy Alto">VMI(1.41)</option>
+													<option value="0.0" title="Extra">XMI(0)</option>
 												</select>
 											  </td>
 											  <td>
 												<select class="mdb-select md-form" id="proTEAM" name="proTEAM">
-													<option value="3.29" title="Normal">NOM</option>
-													<option value="5.48" title="Muy Bajo">VLO</option>
-													<option value="4.36" title="Bajo">LO</option>
-													<option value="2.19" title="Alto">MI</option>
-													<option value="1.10" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
+													<option value="3.29" title="Normal">NOM(3.29)</option>
+													<option value="5.48" title="Muy Bajo">VLO(5.48)</option>
+													<option value="4.36" title="Bajo">LO(4.36)</option>
+													<option value="2.19" title="Alto">MI(2.19)</option>
+													<option value="1.10" title="Muy Alto">VMI(1.10)</option>
+													<option value="0.0" title="Extra">XMI(0)</option>
 												</select>
 											  </td>
 											  <td>
 												<select class="mdb-select md-form" id="proPMAT" name="proPMAT">
-													<option value="4.68" title="Normal">NOM</option>
-													<option value="7.80" title="Muy Bajo">VLO</option>
-													<option value="6.24" title="Bajo">LO</option>
-													<option value="3.12" title="Alto">MI</option>
-													<option value="1.56" title="Muy Alto">VMI</option>
-													<option value="0.0" title="Extra">XMI</option>
+													<option value="4.68" title="Normal">NOM(4.68)</option>
+													<option value="7.80" title="Muy Bajo">VLO(7.80)</option>
+													<option value="6.24" title="Bajo">LO(6.24)</option>
+													<option value="3.12" title="Alto">MI(3.12)</option>
+													<option value="1.56" title="Muy Alto">VMI(1.56)</option>
+													<option value="0.0" title="Extra">XMI(0)</option>
 												</select>
 											  </td>
 									  </table>
@@ -509,10 +509,11 @@
 												<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto"><p>\[ {PM_{Nominal Mes Persona}}\]</p></TH>
 												<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF"><p>\[ {PM_{Estimado Módulo(Mes Persona)}}\]</p></TH>
 												<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">Costo Mes-Persona Dolares</TH>
-												<TH colspan="1" title="Costo del modulo"><p>\[ {Costo_{(estimado,modulo)}}\]</p></TH>
+												<TH colspan="1" title="Costo del modulo"><p>\[ Costo\]</p></TH>
 											
 											</TR>
 											<!-- DATA DESDE JS -->
+							
 										</TABLE>
 									</div>
 								</div>
@@ -542,12 +543,24 @@
 												<td class="productividadNominal">0</td>
 											</tr>
 											<tr class="total">
-												<td >Esfuerzo Estimado  del Sistema Total</td>
+												<td >Esfuerzo Estimado  del Sistema Total  <p>\[ PM_{EstimadoTotal}\]</p></td>
 												<td class="esfuerzoEstimadoDelSistemTotal">0</td>
 											</tr>
 											<tr class="total">
 												<td >Tiempo de desarrollo Estimado <p>\[TDEV = {[3.0*PM_{estimado}^{0.33+0.2*(B-1.01)} ]}\]</p></td>
 												<td class="timeDevEstimado">0</td>
+											</tr>
+											<tr class="total">
+												<td >Factor exponencial de escala  <p>\[B\]</p></td>
+												<td class="classB">0</td>
+											</tr>
+											<tr class="total">
+												<td >Costo Total del sistema </td>
+												<td class="costoTotalSistema">0</td>
+											</tr>
+											<tr class="total">
+												<td >Costo Total del sistema + 10% </td>
+												<td class="costoTotalSistema10">0</td>
 											</tr>
 										</tbody>
 									</table>
@@ -639,8 +652,6 @@
 	<script type="text/javascript" src="../js/sprintf.min.js"></script>
 	<!-- Your custom scripts (optional) -->
 	<script type="text/javascript" src="../../controler/appCocomos.js"></script>
-	<script type="text/javascript" src="../../controler/eaf.js"></script>
-
 	<script type="text/javascript" src="../../view/table.js"></script>
 	<script type="text/javascript" src="../../controler/formulas.js"></script>
 
