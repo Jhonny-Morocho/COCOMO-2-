@@ -28,9 +28,9 @@ function imprimirTabla(dataFormulario,dataPm_porModulo,dataPmEstimadoModiulo){
 				'<td class="classPM_estimado">'+((dataPm_porModulo[i]*dataFormulario.EAF[i]).toFixed(2))+'</td>'+
 				'<td>'+dataFormulario.sueldo[i]+'</td>'+
 				// PASO 12 Costo del Mes-Persona para cada módulo, expresado en miles de dólares
-				
-				'<td>'+((dataPm_porModulo[i]*dataFormulario.EAF[i]).toFixed(2)*(dataFormulario.sueldo[i])).toFixed(2)+'</td>'+
-			
+				'<td class="classCosto">'+((dataPm_porModulo[i]*dataFormulario.EAF[i]).toFixed(2)*(dataFormulario.sueldo[i])).toFixed(2)+'</td>'+
+				//PASO 15 la Productividad, calculada como el cociente entre el Tamaño del Módulo y el Esfuerzo Estimado por módulo
+				'<td>'+(dataFormulario.sloc[i]/((dataPm_porModulo[i]*dataFormulario.EAF[i]))).toFixed(2)+'</td>'+
 			'/<tr>';
 			//añadir nodos a la tabla  Formulario para la estimación de esfuerzo y tiempo de desarrollo utilizando 
 		$('.dataAfter').after(TD);

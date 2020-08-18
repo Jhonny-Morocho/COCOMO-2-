@@ -17,7 +17,7 @@ var ProductividadNominal=0;
 var factorAjusteEsfuerzoEAF=[];
 var TDEV=0;
 var sumaNodoPm_estimadoTotal=0;
-
+var costoTotalProyecto=0;
 const A=2.94;//es una constante que captura los efectos lineales sobre el esfuerzo de acuerdo a la variación del tamaño
 //===============================Obtener datos del formulario=============================//
 
@@ -51,6 +51,7 @@ $('#idformCocommo').on('submit',function(e){
     imprimirTabla(dataFormulario,esfuerzoNominalPM_porModulo);
     //alert("Imprme tabla");
     //$('.nodosData').remove();
+    toastr.success('Se añadio '+datos[0].value);
 });
 
 
@@ -93,11 +94,14 @@ $('#idFormCalcularEstimacion').on('submit',function(e){
         //tiempo de dasarrollo
         tiempoDesarrolo(PM_estimadoTotal(nodoPmEstimado),factorEscala_B);
 
-        //calculo del mes persona vuelvo actulizar la tabla
+        //costo total del proyecto 
+        costoTotalSistema();
+        toastr.success('Calculo efectuado exitosamente');
         //imprimirTabla(dataFormulario,PM_porModulo());
     } catch (error) {
         //console.log("No existen datos en la tabla"); 
-        alert("No existen Datos en la tabla ");
+
+        toastr.error('No existen Datos en la tabla ');
     }
 });
 
@@ -172,8 +176,7 @@ function PM_estimadoTotal(nodosPm_estimado){
 
 //PASO 11. Determinar el Tiempo de desarrollo  estimado del proyecto TDEV
 function tiempoDesarrolo(Pm_estimado_total,B){
-    console.log("Xxxxx");
-    console.log();
+
     //TDEV=(3.0*Math.pow(1,(0.33+0.2*(B-1.01))));
     TDEV=(Math.pow(Pm_estimado_total,(0.33+0.2*(B-1.01)))).toFixed(2);
     console.log(TDEV);
@@ -182,3 +185,25 @@ function tiempoDesarrolo(Pm_estimado_total,B){
     return TDEV;
 }
 
+// PASO 13. Costo Total del Sistema sumando los valores obtenidos de costo del PASO 12
+
+function costoTotalSistema(){
+    costoTotalProyecto=0;
+
+    var nodosCosto=$('.classCosto');
+    for (let index = 0; index < nodosCosto.length; index++) {
+        costoTotalProyecto=Number(nodosCosto[index].innerText)+Number(costoTotalProyecto);
+    }
+    // costo del proyecto real
+    $('.costoTotalSistema').html(costoTotalProyecto);
+
+    //agregar al costo el 10% extra
+    $('.costoTotalSistema10').html((costoTotalProyecto+(costoTotalProyecto*0.10)).toFixed(2));
+
+    console.log(costoTotalProyecto);
+    return costoTotalProyecto;
+}
+
+//PASO 14 . NO SE LO TOMO EN CUENTA YA QUE ES UN VALOR Q NO SE LO NECESITA
+
+//PASO 15. PARA CADA MODULO DETERMINAR LA PRODUCTIVDAD(SLOCK/ESFUERZO ESTIMADO)
