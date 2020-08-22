@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- Material Design Bootstrap -->
 	<link rel="stylesheet" href="css/mdb.min.css">
+	<!-- MDB File Upload Desing -->
+	<link rel="stylesheet" href="css/mdb-file-upload.css">
 	<!-- Your custom styles (optional) -->
 	<link rel="stylesheet" href="css/style.css">
 	<!-- =================== APP==================== -->
@@ -62,7 +64,7 @@
     							<form style="color: #757575;" action="#!">
 
     								<!-- Name -->
-    								<div class="md-form mt-3">
+    								<!-- <div class="md-form mt-3">
     									<div class="file-field">
     										<div class="btn btn-primary btn-sm float-left">
     											<span>Elegir directorio</span>
@@ -71,8 +73,19 @@
     										<div class="file-path-wrapper">
     											<input class="file-path validate" type="text" placeholder="Sube tu archivo">
     										</div>
-    									</div>
-    								</div>
+										</div>
+									</div> -->
+									<p class="h6 mt-3 mb-3">Subir carpeta</p>
+									<div class="md-form mt-3">
+										<div class="file-field">
+											<div class="file-upload-wrapper mb-2">
+												<input type="file" id="dir_files" class="file-upload" webkitdirectory directory multiple>
+											</div>
+											<div class="file-path-wrapper">
+												<input class="file-path validate" type="text" placeholder="Listado de Archivos">
+											</div>
+										</div>
+									</div>
 
 									<div class="row">
 										<div class="col-md-12" id="block-multiselect_excl">
@@ -196,6 +209,8 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="js/mdb.min.js"></script>
+	<!-- MDB File Upload -->
+	<script type="text/javascript" src="js/mdb-file-upload.js"></script>
 	<!-- MDB Component Initialization -->
 	<script type="text/javascript" src="../js/appIndex.js"></script>
 	<!-- Encoder.js -->
