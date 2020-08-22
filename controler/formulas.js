@@ -57,8 +57,8 @@ $('#idformCocommo').on('submit',function(e){
 
 $('#idFormCalcularEstimacion').on('submit',function(e){
     e.preventDefault();
-    var datos=$(this).serializeArray();
-    console.log(datos);
+    var datos2=$(this).serializeArray();
+    console.log(datos2);
 
     //obtener todos los nodos soloc
     var nodosSoloc=$('.soloc');
@@ -69,7 +69,7 @@ $('#idFormCalcularEstimacion').on('submit',function(e){
      //obtener el factor de escala es global
      var auxfactorEscala_B=0;
      for (let index = 0; index < 5; index++) {
-         auxfactorEscala_B = Number(datos[index].value)+auxfactorEscala_B;
+         auxfactorEscala_B = Number(datos2[index].value)+auxfactorEscala_B;
      }
      // asigno el facto de escala
      factorEscala_B=factorExponencialDeEscala_B(auxfactorEscala_B);
@@ -200,6 +200,9 @@ function costoTotalSistema(){
     //agregar al costo el 10% extra
     $('.costoTotalSistema10').html((costoTotalProyecto+(costoTotalProyecto*0.10)).toFixed(2));
 
+    //agregar extras al costo el 25
+    $('.costoTotalSistema25').html((costoTotalProyecto+(costoTotalProyecto*0.10))+(costoTotalProyecto*0.25));
+
     console.log(costoTotalProyecto);
     return costoTotalProyecto;
 }
@@ -207,3 +210,6 @@ function costoTotalSistema(){
 //PASO 14 . NO SE LO TOMO EN CUENTA YA QUE ES UN VALOR Q NO SE LO NECESITA
 
 //PASO 15. PARA CADA MODULO DETERMINAR LA PRODUCTIVDAD(SLOCK/ESFUERZO ESTIMADO)
+
+
+//PASO 16. NUMERO DE PERSONAS REQUERIDAS 

@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/mdb.min.css">
 	<!-- Your custom styles (optional) -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" type="image/png" href="../../view/img/icono.png" />
 	<!-- =================== APP==================== -->
 	<link rel="stylesheet" href="../css/appIndex.css">
 	<meta property="og:title" content="COCOMO 2" />
@@ -45,10 +46,47 @@
 	<!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
 	<!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
 	<!-- ==============================CONTENDEOR DEL PROGRRAMA=============================== -->
+
+<div class="row">
+	<div class="col-lg-12 ">
+			<!-- Card -->
+			<div class="card card-cascade wider reverse">
+
+				<!-- Card image -->
+				<div class="view view-cascade overlay">
+				<img class="card-img-top" src="../../view/img/flayer.png"
+					alt="Card image cap">
+				<a href="#!">
+					<div class="mask rgba-white-slight"></div>
+				</a>
+				</div>
+			
+				<!-- Card content -->
+				<div class="card-body card-body-cascade text-center">
+			
+				<!-- Title -->
+				<h4 class="card-title"><strong>Cocomo 2</strong></h4>
+
+				<!-- Text -->
+				<p class="card-text">El Modelo Constructivo de Costos es un modelo matemático de base empírica utilizado para 
+					estimación de costos​ de software. está compuesto por tres modelos denominados: Composición de Aplicación,
+					Diseño Temprano y Post-Arquitectura.
+					Los tres modelos de COCOMO II se adaptan tanto a las necesidades de los diferentes sectores descriptos, como al tipo y cantidad de información disponible en cada etapa del ciclo de
+					vida de desarrollo, lo que se conoce por granularidad de la información.
+				</p>
+			
+				
+				</div>
+			
+			</div>
+			<!-- Card -->
+	</div>
+</div>
+
 	<div class="row">
 		<div class="col-lg-12">
-			<h2>Cocomo 2</h2>
 			<div class="row">
+				
 				<div class="col-12  formulario">
 					<!-- Material form contact -->
 					<div class="card">
@@ -109,32 +147,32 @@
 					<!-- Material form contact -->
 					<div class="card">
 						<h5 class="card-header info-color white-text text-center py-4 bg-dark">
-							<strong>Parametros de Configuracion 2</strong>
+							<strong>Datos del modulo o Proyecto a estimar</strong>
 						</h5>
 
 						<!--Card content-->
 						<div class="card-body px-lg-5 pt-0">
-
 							<!-- Form -->
 							<form style="color: #757575;" action="#!" id="idformCocommo">
 								<!-- ============NOMBRE DEL MODULO============ -->
 								<div class="md-form mt-3">
-									<input type="text" id="materialSubscriptionFormPasswords" class="form-control"  name="nombreModulo" required value="Quedit">
+									<input type="text" id="materialSubscriptionFormPasswords" class="form-control"  name="nombreModulo" required >
 									<label for="materialSubscriptionFormPasswords">Nombre Modulo</label>
 								</div>
 								<!-- ============LINEAS DE CODIGO============ -->
 								<div class="md-form mt-3">
-									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="soloc" required value="1800">
+									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="soloc" required min="0">
 									<label for="materialSubscriptionFormPasswords">SLOC</label>
 								</div>
 					
 								 <!-- ============COSTO MES PERSONA============ -->
 								<div class="md-form mt-3">
-									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="sueldoMesPersona" required value="5370">
+									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="sueldoMesPersona" min="350" required >
 									<label for="materialSubscriptionFormPasswords">Costo Mes/Persona</label>
 								</div>
 								<!-- ============EM (Multiplicadores de esfuerzo) POST PRODUCCION ============-->
-								<label for="materialContactFormMessage"> Factores de Costo Post PRODUCCION \[ {EAF_M{(Multiplicadores-de-esfuerzo)}}\]</label>
+							
+								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño"> Factores de Costo Post-Produccion (Multiplicadores-de-esfuerzo)\[ {EAF_M{}}\]</label>
 								<div class="md-form" >
 									<TABLE BORDER  class="table" >
 										<TR class="black white-text">
@@ -341,20 +379,47 @@
 									</TABLE>
 									
 								</div>
-								<!-- //=============FACTORES DE ESCALA w, j  // -->
-								<!-- //=============FACTORES DE ESCALA w, j  // -->
-								<!-- //=============FACTORES DE ESCALA w, j  // -->
-								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño">Factor Escala wj</label>
+			
+
+							
+								<!-- Send button -->
+								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+									type="submit" id="btn_send">Calcular</button>
+
+							</form>
+							<!-- Form -->
+						</div>
+					</div>
+					<!-- Material form cocomo -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="col-12">
+				<div class="card ">
+						<h5 class="card-header info-color white-text text-center py-4 bg-dark">
+							<strong> Estimaciones </strong>
+						</h5>
+					<div class="card-body px-lg-5 pt-0 ">
+						<form action="#" method="post" id="idFormCalcularEstimacion" style="color: #757575;">
+								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
+								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño">Factor exponencial de escala <p>\[ B=1.01+0.01*{\sum_{j=1}^5(W_j)}\]</p></label>
 								<div class="md-form" >
-									<table class="table" BORDER>
-										  <tr class="black white-text">
+									<table class="table" BORDER >
+											<tr class="black white-text">
 											<th COLSPAN=1 title="Precedencia">PREC</th>
 											<th COLSPAN=1  title="Flexibilidad en el desarrollo">FLEX</th>
 											<th COLSPAN=1  title=" Arquitectura/Resolución de riesgo">RESL</th>
 											<th COLSPAN=1  title="Cohesión de equipo">TEAM</th>
 											<th COLSPAN=1  title="Madurez del proceso">PMAT</th>
-										  </tr>
-											  <td>
+											</tr>
+											<td>
 												<select class="mdb-select md-form" id="proPREC" name="proPREC">
 													<option value="3.72" title="Normal">NOM(3.72)</option>
 													<option value="6.20" title="Muy Bajo">VLO(6.20)</option>
@@ -406,179 +471,94 @@
 													<option value="0.0" title="Extra">XMI(0)</option>
 												</select>
 											  </td>
-									  </table>
+										</table>
 								</div>
-
+	
 							
-								<!-- Send button -->
-								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
-									type="submit" id="btn_send">Calcular</button>
-
-							</form>
-							<!-- Form -->
-						</div>
-					</div>
-					<!-- Material form cocomo -->
-				</div>
-
-				<div class="col-lg-12">
-					<div class="card ">
-						<div class="card-body px-lg-5 pt-0">
-							<h5 class="card-header info-color white-text text-center py-4 bg-dark">
-								<strong>Factores del proyecto. Modelo Post-Arquitectura.[COCOMO II.0]</strong>
-							</h5>
-							<form action="#" method="post" id="idFormCalcularEstimacion">
-								<div class="card-body px-lg-5 pt-0 ">
-									<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
-									<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
-									<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
-									<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño"> Factores del proyecto. Modelo Post-Arquitectura.[COCOMO II.0]</label>
-									<div class="md-form" >
-										<table class="table" BORDER >
-												<tr class="black white-text">
-												<th COLSPAN=1 title="Precedencia">PREC</th>
-												<th COLSPAN=1  title="Flexibilidad en el desarrollo">FLEX</th>
-												<th COLSPAN=1  title=" Arquitectura/Resolución de riesgo">RESL</th>
-												<th COLSPAN=1  title="Cohesión de equipo">TEAM</th>
-												<th COLSPAN=1  title="Madurez del proceso">PMAT</th>
-												</tr>
-													<td>
-													<select class="md-form" id="proPREC" name="proPREC">
-														<option value="3.72" title="Normal">NOM</option>
-														<option value="6.20" title="Muy Bajo">VLO</option>
-														<option value="4.96" title="Bajo">LO</option>
-														<option value="2.48" title="Alto">MI</option>
-														<option value="1.24" title="Muy Alto">VMI</option>
-														<option value="0.0" title="Extra">XMI</option>
-													</select>
-													</td>
-												
-													<td>
-													<select class=" md-form" id="proFLEX" name="proFLEX">
-														<option value="3.04" title="Normal">NOM</option>
-														<option value="5.07" title="Muy Bajo">VLO</option>
-														<option value="4.05" title="Bajo">LO</option>
-														<option value="2.03" title="Alto">MI</option>
-														<option value="1.01" title="Muy Alto">VMI</option>
-														<option value="0.0" title="Extra">XMI</option>
-													</select>
-													</td>
-		
-													<td>
-													<select class=" md-form" id="proRESL" name="proRESL">
-														<option value="4.24" title="Normal">NOM</option>
-														<option value="7.07" title="Muy Bajo">VLO</option>
-														<option value="5.65" title="Bajo">LO</option>
-														<option value="2.83" title="Alto">MI</option>
-														<option value="1.41" title="Muy Alto">VMI</option>
-														<option value="0.0" title="Extra">XMI</option>
-													</select>
-													</td>
-													<td>
-													<select class=" md-form" id="proTEAM" name="proTEAM">
-														<option value="3.29" title="Normal">NOM</option>
-														<option value="5.48" title="Muy Bajo">VLO</option>
-														<option value="4.36" title="Bajo">LO</option>
-														<option value="2.19" title="Alto">MI</option>
-														<option value="1.10" title="Muy Alto">VMI</option>
-														<option value="0.0" title="Extra">XMI</option>
-													</select>
-													</td>
-													<td>
-													<select class=" md-form" id="proPMAT" name="proPMAT">
-														<option value="4.68" title="Normal">NOM</option>
-														<option value="7.80" title="Muy Bajo">VLO</option>
-														<option value="6.24" title="Bajo">LO</option>
-														<option value="3.12" title="Alto">MI</option>
-														<option value="1.56" title="Muy Alto">VMI</option>
-														<option value="0.0" title="Extra">XMI</option>
-													</select>
-													</td>
-											</table>
-									</div>
-		
-								
-									<div class="md-form" >
-										<TABLE BORDER class="table">
-											<TR class="black white-text dataAfter">
-												<TH COLSPAN=1 title="Numero de Modulo">#</TH>
-												<TH COLSPAN=1 title="Nombre Modulo">Name</TH>
-												<TH COLSPAN=1 title="Numero de Lienas de Código">SLOC</TH>
-												<TH COLSPAN=1 title="Factor de Ajuste para cada modulo">EAF</TH>
-												<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto">PM_Nominal (Mes Persona)</TH>
-												<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">PM_Estimado (Mes Persona)</TH>
-												<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">Costo (Mes-Persona Dolares)</TH>
-												<TH colspan="1" title="Costo del modulo"><p>\[ Costo\]</p></TH>
-												<TH colspan="1" title="Costo del modulo">Productividad (Soloc/MesPersona)</TH>
-											
-											</TR>
-											<!-- DATA DESDE JS -->
-							
-										</TABLE>
-									</div>
+								<div class="md-form" >
+									<TABLE BORDER class="table">
+										<TR class="black white-text dataAfter">
+											<TH COLSPAN=1 title="Numero de Modulo">#</TH>
+											<TH COLSPAN=1 title="Nombre Modulo">Name</TH>
+											<TH COLSPAN=1 title="Numero de Lienas de Código">SLOC</TH>
+											<TH COLSPAN=1 title="Factor de Ajuste para cada modulo">EAF</TH>
+											<TH colspan="1" title="Cociente entre Lienas de Codigo de cada modulo/Productividad del Proyecto">PM_Nominal (Mes Persona)</TH>
+											<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">PM_Estimado (Mes Persona)</TH>
+											<TH colspan="1" title="Esfuerzo estimado por modulo PM nominal,modulo*EAF">Costo (Mes-Persona Dolares)</TH>
+											<TH colspan="1" title="Costo del modulo"><p>\[ Costo\]</p></TH>
+											<TH colspan="1" title="Costo del modulo">Productividad (Soloc/MesPersona)</TH>
+										
+										</TR>
+										<!-- DATA DESDE JS -->
+						
+									</TABLE>
 								</div>
 								<input type="submit" name="btn_pagar" value="Calcular" class="btn btn-success col-md-12">
-							</form>
-						</div>
+						</form>
 					</div>
-				</div>
-				<div class="col-log-6">
-					<div class="card-body px-lg-5 pt-0">
-						<div class="cart-calculator-wrapper">
-							<div class="cart-calculate-items">
-								<h3>Resumen</h3>
-								<div class="table-responsive">
-									<table class="table">
-										<tbody>
-											<tr class="total">
-												<td>Total SLOCK</td>
-												<td class="totalSlock">0</td>
-											</tr>
-											<tr class="total">
-												<td title="Es el esfuerzo Nominal ajustado por 7 factores, que reflejan otros aspectos propios del proyecto que afectan al esfuerzo necesario para la ejecución del mism">Esfuerzo Nominal (Estimadado)  <p>\[ {PM_Nominal}\]</p></td>
-												<td class="esfuerzoNominal">0</td>
-											</tr>
-											<tr class="total">
-												<td >Productividad del Proyecto  <p>\[ {(KSLOC/PM)_Nominal}\]</p></td>
-												<td class="productividadNominal">0</td>
-											</tr>
-											<tr class="total">
-												<td >Esfuerzo Estimado  del Sistema Total  <p>\[ PM_{EstimadoTotal}\]</p></td>
-												<td class="esfuerzoEstimadoDelSistemTotal">0</td>
-											</tr>
-											<tr class="total">
-												<td >Tiempo de desarrollo Estimado <p>\[TDEV = {[3.0*PM_{estimado}^{0.33+0.2*(B-1.01)} ]}\]</p></td>
-												<td class="timeDevEstimado">0</td>
-											</tr>
-											<tr class="total">
-												<td >Factor exponencial de escala  <p>\[B\]</p></td>
-												<td class="classB">0</td>
-											</tr>
-											<tr class="total">
-												<td >Costo Total del sistema </td>
-												<td class="costoTotalSistema">0</td>
-											</tr>
-											<tr class="total">
-												<td >Costo Total del sistema + 10% </td>
-												<td class="costoTotalSistema10">0</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							
-							
-						
-							<input type="hidden" id="descuentoId" name="descuento" value="50">
-							<input type="hidden" id="limiteId" name="limite" value="5">
-							<!-- <a href="checkout.html" class="sqr-btn d-block">Proceed To Checkout</a> -->
-						</div>
-
-					</div>
-
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-log-12 formulario">
+			<div class="card">
+				<div class="card-body px-lg-6 pt-0">
+					<div class="md-form">
+						<h3 class="info-color white-text text-center py-4 bg-dark">Resumen</h3>
+						<div class="table-responsive">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>Total SLOCK</td>
+										<td class="totalSlock">0</td>
+									</tr>
+									<tr>
+										<td title="Es el esfuerzo Nominal ajustado por 7 factores, que reflejan otros aspectos propios del proyecto que afectan al esfuerzo necesario para la ejecución del mism">Esfuerzo Nominal (Estimadado)  <p>\[ {PM_Nominal}\]</p></td>
+										<td class="esfuerzoNominal">0</td>
+									</tr>
+									<tr>
+										<td >Productividad del Proyecto  <p>\[ {(KSLOC/PM)_Nominal}\]</p></td>
+										<td class="productividadNominal">0</td>
+									</tr>
+									<tr>
+										<td  title="PM es el esfuerzo estimado. Representa los meses-persona3 necesarios para ejecutar el proyecto">Esfuerzo Estimado  del Sistema Total  <p>\[ PM_{EstimadoTotal}\]</p></td>
+										<td class="esfuerzoEstimadoDelSistemTotal">0</td>
+									</tr>
+									<tr>
+										<td >Tiempo de desarrollo Estimado <p>\[TDEV = {[3.0*PM_{estimado}^{0.33+0.2*(B-1.01)} ]}\]</p></td>
+										<td class="timeDevEstimado">0</td>
+									</tr>
+									<tr>
+										<td >Factor exponencial de escala  <p>\[B\]</p></td>
+										<td class="classB">0</td>
+									</tr>
+									<tr>
+										<td >Costo Total del sistema </td>
+										<td class="costoTotalSistema">0</td>
+									</tr>
+									<tr>
+										<td >Costo Total del sistema + 10% </td>
+										<td class="costoTotalSistema10">0</td>
+									</tr>
+									<tr>
+										<td title="Test,e imprevistos en relación al tiempo">Extras +25%</td>
+										<td class="costoTotalSistema25">0</td>
+									</tr>
+									<tr>
+										<td title="Test,e imprevistos en relación al tiempo">Personas Requeridas</td>
+										<td class="personasRequerido">0</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+
 	</div>
 	<!--end row content progrman main-->
 	<!-- Footer -->
@@ -656,8 +636,7 @@
 	<script type="text/javascript" src="../../controler/formulas.js"></script>
 
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-	<script id="MathJax-script" async
-			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 	</script>
 	
 </body>
