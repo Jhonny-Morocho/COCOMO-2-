@@ -94,6 +94,8 @@ $('#idFormCalcularEstimacion').on('submit',function(e){
         //tiempo de dasarrollo
         tiempoDesarrolo(PM_estimadoTotal(nodoPmEstimado),factorEscala_B);
 
+        // numero de personas para desarrollar el proyecto
+        numeroPersonas(PM_estimadoTotal(nodoPmEstimado),tiempoDesarrolo(PM_estimadoTotal(nodoPmEstimado),factorEscala_B));
         //costo total del proyecto 
         costoTotalSistema();
         toastr.success('Calculo efectuado exitosamente');
@@ -212,4 +214,10 @@ function costoTotalSistema(){
 //PASO 15. PARA CADA MODULO DETERMINAR LA PRODUCTIVDAD(SLOCK/ESFUERZO ESTIMADO)
 
 
-//PASO 16. NUMERO DE PERSONAS REQUERIDAS 
+//PASO 16. NUMERO DE PERSONAS REQUERIDAS
+function numeroPersonas(esfuerzo,tiempoDesarrollo){
+    console.log(esfuerzo);
+    console.log(tiempoDesarrollo);
+
+    $('.personasRequerido').html((esfuerzo/tiempoDesarrollo).toFixed(2));
+} 
