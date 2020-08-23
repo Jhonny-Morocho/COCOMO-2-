@@ -6,3 +6,11 @@ h2{
     padding-right: 50px;
     padding-bottom: 50px;
 }
+
+.green-border textarea {
+    border: 1px solid #8bc34a;
+}
+
+#results {
+	padding-left: 10px;
+}
