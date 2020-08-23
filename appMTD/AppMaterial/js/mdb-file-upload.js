@@ -116,7 +116,9 @@ var _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator 
         "outside" === this.settings.errorsPosition ? this.errorsContainer.insertAfter(this.wrapper) : this.errorsContainer.insertBefore(this.input));
         var t = this.settings.defaultFile || "";
         "" !== t.trim() && (this.file.name = this.cleanFilename(t),
-        this.setPreview(this.isImage(), t))
+        this.setPreview(this.isImage(), t)),
+        this.wrapper.on("dragover dragenter", (e) => this.wrapper.addClass('is-dragover')),
+        this.wrapper.on("dragleave dragend drop", (e) => this.wrapper.removeClass('is-dragover'))
     }
     ,
     i.prototype.readFile = function(i, dir) {

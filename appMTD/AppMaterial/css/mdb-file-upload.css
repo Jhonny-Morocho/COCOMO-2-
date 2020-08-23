@@ -39,7 +39,8 @@
 	transition: all .15s linear
 }
 
-.file-upload:hover .mask.rgba-stylish-slight {
+.file-upload:hover .mask.rgba-stylish-slight,
+.file-upload.is-dragover .mask.rgba-stylish-slight {
 	opacity: .8
 }
 
@@ -246,7 +247,8 @@
 }
 
 .file-upload-wrapper .card.card-body:hover .btn.btn-sm.btn-danger,
-.file-upload-wrapper .card.card-body:hover .file-upload-preview .file-upload-infos {
+.file-upload-wrapper .card.card-body:hover .file-upload-preview .file-upload-infos,
+.file-upload-wrapper .card.card-body.is-dragover .file-upload-preview .file-upload-infos {
 	opacity: 1
 }
 
