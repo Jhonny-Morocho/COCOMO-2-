@@ -12,7 +12,8 @@ var typeCommentInline = "^[\s\t]*\u002f\u002f.*?$";   				//Comments identified 
 var typeBlockCommentOpen = ".*(\u002f\\*).*,.*(<!--).*";			// Block comment opening character /* <!--
 var typeBlockCommentClose = ".*(\\*\u002f),.*(-->)";				// Block comment closing character */ -->
 // Default exclusions (RegExp)
-var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,.*\\.obj$,.*\\.properties$,\\.md$";
+var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,.*\\.obj$,.*\\.properties$,\\.md$," + 
+					".*\\/node_modules\\/.*,.*\\/test\\/.*,.*\\/__test__\\/.*";
 
 // Arreglos de expresiones regulares
 var regCommentInLine, regBlockCommentOpen, regBlockCommentClose;
@@ -44,7 +45,7 @@ $(document).ready(function() {
 				'value': index,
 				'text': Encoder.htmlDecode(f.name),
 				'data-secondary-text': Encoder.htmlDecode(f.webkitRelativePath),
-				'selected': re_excls.some((re) => f.name.search(re) != -1)
+				'selected': re_excls.some((re) => f.name.search(re) != -1 || f.webkitRelativePath.search(re) != -1)
 			});
 			$("select#ml_sel_excl").append(option);
 		});
@@ -93,6 +94,7 @@ function processDirectory(files, f_exclusions)
 	}
 
 	resetGlobalVars();
+	$("textarea#results").empty();
 
 	var fst_file = files[0];
 	var folder_root = fst_file.webkitRelativePath.split(/\u002f/)[0];
