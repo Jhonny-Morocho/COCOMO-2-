@@ -37,6 +37,8 @@ $(document).ready(function() {
 		files = Array.from(event.target.files);
 		//console.log($(this).val());
 		
+		$("select#ml_sel_excl").empty();
+
 		files.forEach((f, index) => {
 			var option = $('<option>', {
 				'value': index,
@@ -75,6 +77,7 @@ $(document).ready(function() {
 		}
 		else
 		{
+			$("#pb-results").css('display', 'block');
 			processDirectory(files, f_exclusions);
 		}
 	});
@@ -85,6 +88,7 @@ function processDirectory(files, f_exclusions)
 	if (files.length == f_exclusions.length)
 	{
 		alert("Todos los archivos estan excluidos\nNo hay archivos a analizar");
+		$("#pb-results").css('display', 'none');
 		return;
 	}
 
@@ -267,12 +271,14 @@ function addToTotalResults(c_numLines, c_numBlank, c_numComment, c_tlines)
 		t_Final = performance.now();
 
 		var divClocLoc = n_tcloc / n_tloc;
-		var sResult = sprintf("RESULTADOS:\n" + 
-			"Num Carpetas: %d\nNum archivos procesados: %d\nNum archivos totales: %d\n" +
+		var sResult = sprintf("Num archivos procesados: %d\nNum archivos totales: %d\n" +
 			"Líneas de Código ejecutables (LOC): %d\nLíneas en blanco (BLOC): %d\n" + 
 			"Lineas comentadas (CLOC): %d\nLíneas totales (TLOC): %d\n" + 
 			"Relación Comentarios//Codigo: %.2f\nTiempo total empleado en el análisis: %.2f ms", 
-			n_folders, n_pfiles, n_tfiles, n_tloc, n_tbloc, n_tcloc, n_tltotal, divClocLoc, (t_Final - t_Initial));
+			n_pfiles, n_tfiles, n_tloc, n_tbloc, n_tcloc, n_tltotal, divClocLoc, (t_Final - t_Initial));
+
+		$("textarea#results").text(sResult);
+		$("#pb-results").css('display', 'none');
 
 		console.log(`%c${sResult}`, "color:#04B404");
 		console.log("%cFinal del procesamiento", "color:#819FF7");
