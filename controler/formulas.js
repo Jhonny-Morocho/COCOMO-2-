@@ -1,7 +1,7 @@
 
 
 
-
+alert("xxxxx");
 // ==========================================VARIABLES======================
 // obtener todos los array de nombe del modulo del formuario
 var arrayNombreModulo=[];

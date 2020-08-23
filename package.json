@@ -1,0 +1,28 @@
+{
+  "name": "jstestcocomo",
+  "version": "1.0.0",
+  "description": "Test unitarios",
+  "main": "jest",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jhonny-Morocho/COCOMO-2-.git"
+  },
+  "keywords": [
+    "jest"
+  ],
+  "author": "Santiago Rivera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jhonny-Morocho/COCOMO-2-/issues"
+  },
+  "homepage": "https://github.com/Jhonny-Morocho/COCOMO-2-#readme",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
