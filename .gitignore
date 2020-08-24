@@ -3,6 +3,8 @@
 #archivos sublime text
 *.sublime-project
 *.sublime-workspace
+
+# archivos node.js test
 /node_modules/
 /test/
 package.json

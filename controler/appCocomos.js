@@ -12,7 +12,8 @@ var typeCommentInline = "^[\s\t]*\u002f\u002f.*?$";   				//Comments identified 
 var typeBlockCommentOpen = ".*(\u002f\\*).*,.*(<!--).*";			// Block comment opening character /* <!--
 var typeBlockCommentClose = ".*(\\*\u002f),.*(-->)";				// Block comment closing character */ -->
 // Default exclusions (RegExp)
-var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,.*\\.obj$,.*\\.properties$,\\.md$";
+var exclusions = "^\\.git$,^\\.gitignore$,^\\.gitattributes$,^\\.svn$,^bin$,.*\\.obj$,.*\\.properties$,\\.md$," + 
+					".*\\/node_modules\\/.*,.*\\/test\\/.*,.*\\/__test__\\/.*";
 
 // Arreglos de expresiones regulares
 var regCommentInLine, regBlockCommentOpen, regBlockCommentClose;
@@ -37,12 +38,14 @@ $(document).ready(function() {
 		files = Array.from(event.target.files);
 		//console.log($(this).val());
 		
+		$("select#ml_sel_excl").empty();
+
 		files.forEach((f, index) => {
 			var option = $('<option>', {
 				'value': index,
 				'text': Encoder.htmlDecode(f.name),
 				'data-secondary-text': Encoder.htmlDecode(f.webkitRelativePath),
-				'selected': re_excls.some((re) => f.name.search(re) != -1)
+				'selected': re_excls.some((re) => f.name.search(re) != -1 || f.webkitRelativePath.search(re) != -1)
 			});
 			$("select#ml_sel_excl").append(option);
 		});
@@ -75,6 +78,7 @@ $(document).ready(function() {
 		}
 		else
 		{
+			$("#pb-results").css('display', 'block');
 			processDirectory(files, f_exclusions);
 		}
 	});
@@ -85,10 +89,12 @@ function processDirectory(files, f_exclusions)
 	if (files.length == f_exclusions.length)
 	{
 		alert("Todos los archivos estan excluidos\nNo hay archivos a analizar");
+		$("#pb-results").css('display', 'none');
 		return;
 	}
 
 	resetGlobalVars();
+	$("textarea#results").empty();
 
 	var fst_file = files[0];
 	var folder_root = fst_file.webkitRelativePath.split(/\u002f/)[0];
@@ -267,12 +273,14 @@ function addToTotalResults(c_numLines, c_numBlank, c_numComment, c_tlines)
 		t_Final = performance.now();
 
 		var divClocLoc = n_tcloc / n_tloc;
-		var sResult = sprintf("RESULTADOS:\n" + 
-			"Num Carpetas: %d\nNum archivos procesados: %d\nNum archivos totales: %d\n" +
+		var sResult = sprintf("Num archivos procesados: %d\nNum archivos totales: %d\n" +
 			"Líneas de Código ejecutables (LOC): %d\nLíneas en blanco (BLOC): %d\n" + 
 			"Lineas comentadas (CLOC): %d\nLíneas totales (TLOC): %d\n" + 
 			"Relación Comentarios//Codigo: %.2f\nTiempo total empleado en el análisis: %.2f ms", 
-			n_folders, n_pfiles, n_tfiles, n_tloc, n_tbloc, n_tcloc, n_tltotal, divClocLoc, (t_Final - t_Initial));
+			n_pfiles, n_tfiles, n_tloc, n_tbloc, n_tcloc, n_tltotal, divClocLoc, (t_Final - t_Initial));
+
+		$("textarea#results").text(sResult);
+		$("#pb-results").css('display', 'none');
 
 		console.log(`%c${sResult}`, "color:#04B404");
 		console.log("%cFinal del procesamiento", "color:#819FF7");
