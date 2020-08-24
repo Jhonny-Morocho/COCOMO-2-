@@ -22,7 +22,7 @@ const A=2.94;//es una constante que captura los efectos lineales sobre el esfuer
 //===============================Obtener datos del formulario=============================//
 
 //1. Obtener los datos del forumuario
-$('#idformCocommo').on('submit',function(e){
+$('#idformCocommo').on('submit',function (e){
     e.preventDefault();
     var datos=$(this).serializeArray();
     console.log(datos);
@@ -55,7 +55,7 @@ $('#idformCocommo').on('submit',function(e){
 });
 
 
-$('#idFormCalcularEstimacion').on('submit',function(e){
+$('#idFormCalcularEstimacion').on('submit',function (e){
     e.preventDefault();
     var datos2=$(this).serializeArray();
     console.log(datos2);
@@ -95,7 +95,7 @@ $('#idFormCalcularEstimacion').on('submit',function(e){
         tiempoDesarrolo(PM_estimadoTotal(nodoPmEstimado),factorEscala_B);
 
         // numero de personas para desarrollar el proyecto
-        numeroPersonas(PM_estimadoTotal(nodoPmEstimado),tiempoDesarrolo(PM_estimadoTotal(nodoPmEstimado),factorEscala_B));
+        numeroPersonas(esfuerzoNominalPm_nominal(tamañoSlocSistema(nodosSoloc)),tiempoDesarrolo(PM_estimadoTotal(nodoPmEstimado),factorEscala_B));
         //costo total del proyecto 
         costoTotalSistema();
         toastr.success('Calculo efectuado exitosamente');
@@ -142,6 +142,7 @@ function esfuerzoNominalPm_nominal(sloc){
     // PASO 5.2 como siguiente paso se calcula la productividad nominal (PRODUCTIVIDAD DEL PROYECTO)
     ProductividadNominal =(Number(sloc)/Number(PMnominal)).toFixed(2);
     $('.productividadNominal').html(ProductividadNominal);
+    return PMnominal;
 }
 
 
@@ -180,9 +181,14 @@ function PM_estimadoTotal(nodosPm_estimado){
 function tiempoDesarrolo(Pm_estimado_total,B){
 
     //TDEV=(3.0*Math.pow(1,(0.33+0.2*(B-1.01))));
-    TDEV=(Math.pow(Pm_estimado_total,(0.33+0.2*(B-1.01)))).toFixed(2);
+    TDEV=(3*Math.pow(Pm_estimado_total,(0.33+0.2*(B-1.01)))).toFixed(2);
     console.log(TDEV);
     $('.timeDevEstimado').html(TDEV);
+
+    TDEVExtras=Number(TDEV*0.25)+Number(TDEV);
+    console.log(TDEVExtras);
+    // timepo de holgura 25%
+    $('.tiempoDevEstimado25').html(TDEVExtras.toFixed(2));
 
     return TDEV;
 }
@@ -197,13 +203,12 @@ function costoTotalSistema(){
         costoTotalProyecto=Number(nodosCosto[index].innerText)+Number(costoTotalProyecto);
     }
     // costo del proyecto real
-    $('.costoTotalSistema').html(costoTotalProyecto);
+    $('.costoTotalSistema').html(costoTotalProyecto.toFixed(2));
 
     //agregar al costo el 10% extra
     $('.costoTotalSistema10').html((costoTotalProyecto+(costoTotalProyecto*0.10)).toFixed(2));
 
-    //agregar extras al costo el 25
-    $('.costoTotalSistema25').html((costoTotalProyecto+(costoTotalProyecto*0.10))+(costoTotalProyecto*0.25));
+   
 
     console.log(costoTotalProyecto);
     return costoTotalProyecto;
@@ -221,3 +226,10 @@ function numeroPersonas(esfuerzo,tiempoDesarrollo){
 
     $('.personasRequerido').html((esfuerzo/tiempoDesarrollo).toFixed(2));
 } 
+
+
+$('.limpiarDatos').on('click',function (e){
+    //&toastr.success('Datos Limpiados');
+    location.reload();
+
+});

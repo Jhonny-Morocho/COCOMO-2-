@@ -56,9 +56,9 @@
 				<div class="view view-cascade overlay">
 				<img class="card-img-top" src="../../view/img/flayer.png"
 					alt="Card image cap">
-				<a href="#!">
+				
 					<div class="mask rgba-white-slight"></div>
-				</a>
+			
 				</div>
 			
 				<!-- Card content -->
@@ -69,7 +69,7 @@
 
 				<!-- Text -->
 				<p class="card-text">El Modelo Constructivo de Costos es un modelo matemático de base empírica utilizado para 
-					estimación de costos​ de software. está compuesto por tres modelos denominados: Composición de Aplicación,
+					estimación de costos​ de software, está compuesto por tres modelos denominados: Composición de Aplicación,
 					Diseño Temprano y Post-Arquitectura.
 					Los tres modelos de COCOMO II se adaptan tanto a las necesidades de los diferentes sectores descriptos, como al tipo y cantidad de información disponible en cada etapa del ciclo de
 					vida de desarrollo, lo que se conoce por granularidad de la información.
@@ -156,7 +156,7 @@
 							<form style="color: #757575;" action="#!" id="idformCocommo">
 								<!-- ============NOMBRE DEL MODULO============ -->
 								<div class="md-form mt-3">
-									<input type="text" id="materialSubscriptionFormPasswords" class="form-control"  name="nombreModulo" required >
+									<input type="text"  class="form-control"  name="nombreModulo" required >
 									<label for="materialSubscriptionFormPasswords">Nombre Modulo</label>
 								</div>
 								<!-- ============LINEAS DE CODIGO============ -->
@@ -167,12 +167,14 @@
 					
 								 <!-- ============COSTO MES PERSONA============ -->
 								<div class="md-form mt-3">
-									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="sueldoMesPersona" min="350" required >
+									<input type="number" id="materialSubscriptionFormPasswords" class="form-control"  name="sueldoMesPersona" min="0" required >
 									<label for="materialSubscriptionFormPasswords">Costo Mes/Persona</label>
 								</div>
 								<!-- ============EM (Multiplicadores de esfuerzo) POST PRODUCCION ============-->
 							
 								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño"> Factores de Costo Post-Produccion (Multiplicadores-de-esfuerzo)\[ {EAF_M{}}\]</label>
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalInfo"><i class="fa fa-question" aria-hidden="true"></i>
+								 </button>
 								<div class="md-form" >
 									<TABLE BORDER  class="table" >
 										<TR class="black white-text">
@@ -384,7 +386,7 @@
 							
 								<!-- Send button -->
 								<button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
-									type="submit" id="btn_send">Calcular</button>
+									type="submit" id="btn_send">Añadir a la tabla de estimación</button>
 
 							</form>
 							<!-- Form -->
@@ -410,6 +412,8 @@
 								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
 								<!-- //=============FACTORES DEL PROYECTO MODELO POST ARQUITECTURA  // -->
 								<label for="materialContactFormMessage" title="Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño">Factor exponencial de escala <p>\[ B=1.01+0.01*{\sum_{j=1}^5(W_j)}\]</p></label>
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalInfo2"><i class="fa fa-question" aria-hidden="true"></i>
+								</button>
 								<div class="md-form" >
 									<table class="table" BORDER >
 											<tr class="black white-text">
@@ -508,7 +512,7 @@
 					<div class="md-form">
 						<h3 class="info-color white-text text-center py-4 bg-dark">Resumen</h3>
 						<div class="table-responsive">
-							<table class="table">
+							<table class="table " id="imprimir">
 								<tbody>
 									<tr>
 										<td>Total SLOCK</td>
@@ -543,15 +547,20 @@
 										<td class="costoTotalSistema10">0</td>
 									</tr>
 									<tr>
-										<td title="Test,e imprevistos en relación al tiempo">Extras +25%</td>
-										<td class="costoTotalSistema25">0</td>
+										<td title="Test,e imprevistos en relación al tiempo">Tiempo 25%</td>
+										<td class="tiempoDevEstimado25">0</td>
 									</tr>
 									<tr>
 										<td title="Test,e imprevistos en relación al tiempo">Personas Requeridas</td>
 										<td class="personasRequerido">0</td>
 									</tr>
 								</tbody>
+					
 							</table>
+							<div class="col-log-12 formulario">
+								<a href="javascript:pruebaDivAPdf()" class="button btn btn-info">Generar PDF</a>
+								<button type="button" class="btn btn-danger limpiarDatos">Limpiar Datos</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -560,6 +569,81 @@
 		</div>
 
 	</div>
+
+
+	
+			<!-- ==============================Mutiplicadores de Esfuerzo================ -->
+			<!-- ==============================Mutiplicadores de Esfuerzo================ -->
+			<!-- ==============================Mutiplicadores de Esfuerzo================ -->
+			<!-- Button trigger modal -->
+
+			
+			<!-- Central Modal Medium Info -->
+			<div class="modal fade" id="centralModalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-notify modal-info" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header">
+					<p class="heading lead">Factores de Costo Post- PRODUCCION</p>
+			
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" class="white-text">&times;</span>
+					</button>
+					</div>
+			
+					<!--Body-->
+					<div class="modal-body">
+					<div class="text-center">
+						<i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+						<p>Es el factor exponencial de escala, toma en cuenta las características relacionadas con las economías y deseconomías de escala producidas cuando un proyecto de software incrementa su tamaño</p>
+						<a href="../../info/Factores Costo.pdf" target="alt"> Ver Documentacion </a>
+					</div>
+					</div>
+				</div>
+				<!--/.Content-->
+				</div>
+			</div>
+			<!-- Central Modal Medium Info-->
+
+			<!-- ==============================FACTOR EXPONENCIAL DE ESCALA================ -->
+			<!-- ==============================FACTOR EXPONENCIAL DE ESCALA================ -->
+			<!-- ==============================FACTOR EXPONENCIAL DE ESCALA================ -->
+			<!-- Central Modal Medium Info -->
+			<div class="modal fade" id="centralModalInfo2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-notify modal-info" role="document">
+			<!--Content-->
+			<div class="modal-content">
+				<!--Header-->
+				<div class="modal-header">
+				<p class="heading lead">Factores exponencial de escala</p>
+
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true" class="white-text">&times;</span>
+				</button>
+				</div>
+
+				<!--Body-->
+				<div class="modal-body">
+				<div class="text-center">
+					<i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+					<p>El cálculo del Factor Exponencial de Escala B está basado en factores que influyen
+						exponencialmente en la productividad y esfuerzo de un proyecto de software. Estos factores toman
+						valores dentro de un rango que va desde un nivel Muy Bajo hasta uno Extra Alto, tal como muestra
+						la Tabla 15. Cada nivel tiene un peso asociado Wj, y ese valor específico es el que se denomina
+						factor de escala. En la Figura 8 se observan los pesos de cada factor según el nivel, considerados
+						por el software COCOMO II.1999.0.</p>
+					<a href="../../info/Exponencial.pdf" target="alt"> Ver Documentacion </a>
+				</div>
+				</div>
+			</div>
+			<!--/.Content-->
+			</div>
+			</div>
+			<!-- Central Modal Medium Info-->
+
 	<!--end row content progrman main-->
 	<!-- Footer -->
 	<footer class="page-footer font-small bg-dark darken-3">
@@ -638,7 +722,40 @@
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 	</script>
+
+	<!-- =============================CONVERTIR PDF========================================== -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+	<script>
+		function pruebaDivAPdf() {
+			var pdf = new jsPDF('p', 'pt', 'letter');
+			source = $('#imprimir')[0];
 	
+			specialElementHandlers = {
+				'#bypassme': function (element, renderer) {
+					return true
+				}
+			};
+			margins = {
+				top: 80,
+				bottom: 60,
+				left: 40,
+				width: 522
+			};
+	
+			pdf.fromHTML(
+				source, 
+				margins.left, // x coord
+				margins.top, { // y coord
+					'width': margins.width, 
+					'elementHandlers': specialElementHandlers
+				},
+	
+				function (dispose) {
+					pdf.save('Prueba.pdf');
+				}, margins
+			);
+		}
+	</script>
 </body>
 
 </html>

@@ -3,3 +3,7 @@
 #archivos sublime text
 *.sublime-project
 *.sublime-workspace
+/node_modules/
+/test/
+package.json
+package-lock.json
